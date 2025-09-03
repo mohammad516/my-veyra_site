@@ -109,15 +109,15 @@ const Logos = () => {
           >
             Trusted by leading platforms
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto"
-          >
-            Powering creativity and innovation with the world's leading platforms.
-          </motion.p>
+                     <motion.p
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.8, delay: 0.3 }}
+             className="text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto"
+           >
+             Powering creativity and innovation with the world&apos;s leading platforms.
+           </motion.p>
         </motion.div>
 
         {/* Horizontal scrolling marquee */}
