@@ -1,7 +1,7 @@
 "use client";
-import { motion, useInView, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
+import { motion, useInView, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef, useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "../../../components/ui/card";
+import { CardContent, CardHeader, CardTitle } from "../../../components/ui/card";
 import { Badge } from "../../../components/ui/badge";
 import { Globe, ShoppingCart, Smartphone, Sparkles } from "lucide-react";
 
@@ -13,8 +13,16 @@ const Services = () => {
     offset: ["start end", "end start"]
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  
+  // Transform values for each service card
+  const service0Y = useTransform(scrollYProgress, [0, 1], [0, -15]);
+  const service1Y = useTransform(scrollYProgress, [0, 1], [0, 0]);
+  const service2Y = useTransform(scrollYProgress, [0, 1], [0, 15]);
+  
+  // Spring values for mouse interactions
+  const cardRotateX = useSpring(mousePosition.y * 10, { stiffness: 300, damping: 30 });
+  const cardRotateY = useSpring(mousePosition.x * 10, { stiffness: 300, damping: 30 });
 
   const services = [{
     icon: <Globe className="w-6 h-6"/>,
@@ -224,7 +232,7 @@ const Services = () => {
               key={i}
               variants={getCardVariants(service.direction)}
               className="relative group"
-              style={{ y: useTransform(scrollYProgress, [0, 1], [0, (i - 1) * 15]) }}
+              style={{ y: i === 0 ? service0Y : i === 1 ? service1Y : service2Y }}
             >
               <motion.div
                 whileHover={{ 
@@ -242,8 +250,8 @@ const Services = () => {
                 className="h-full"
                 onMouseMove={handleMouseMove}
                 style={{
-                  rotateX: useSpring(mousePosition.y * 10, { stiffness: 300, damping: 30 }),
-                  rotateY: useSpring(mousePosition.x * 10, { stiffness: 300, damping: 30 })
+                  rotateX: cardRotateX,
+                  rotateY: cardRotateY
                 }}
               >
                 <motion.div

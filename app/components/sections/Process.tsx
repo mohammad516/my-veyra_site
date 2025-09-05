@@ -11,7 +11,10 @@ const Process = () => {
     offset: ["start end", "end start"]
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  // Transform values for each step
+  const step0Y = useTransform(scrollYProgress, [0, 1], [0, -20]);
+  const step1Y = useTransform(scrollYProgress, [0, 1], [0, 0]);
+  const step2Y = useTransform(scrollYProgress, [0, 1], [0, 20]);
 
   const steps = [{
     icon: <Users className="w-6 h-6"/>,
@@ -63,8 +66,8 @@ const Process = () => {
       scale: 1,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
-        type: "spring",
+        ease: "easeOut" as const,
+        type: "spring" as const,
         stiffness: 100
       }
     }
@@ -173,7 +176,7 @@ const Process = () => {
               key={i}
               variants={getStepVariants(step.direction)}
               className="relative group"
-              style={{ y: useTransform(scrollYProgress, [0, 1], [0, (i - 1) * 20]) }}
+              style={{ y: i === 0 ? step0Y : i === 1 ? step1Y : step2Y }}
             >
               {/* Enhanced connection arrows with draw effect */}
               {i < steps.length - 1 && (

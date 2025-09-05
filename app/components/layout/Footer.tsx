@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Mail, Heart } from "lucide-react";
+import Image from "next/image";
 import Section from "../../../components/ui/Section";
 
 const Footer = () => (
@@ -13,9 +14,11 @@ const Footer = () => (
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <img 
+        <Image 
           src="/log.png" 
           alt="Logo" 
+          width={56}
+          height={56}
           className="h-14 w-auto object-contain"
         />
       </motion.div>

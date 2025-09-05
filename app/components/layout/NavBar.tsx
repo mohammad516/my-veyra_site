@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "framer-motion";
 import { Button } from "../../../components/ui/button";
 
 const NavBar = () => {
@@ -15,6 +15,18 @@ const NavBar = () => {
   const scale = useTransform(scrollY, [0, 100], [1, 0.95]);
   const logoScale = useTransform(scrollY, [0, 100], [1, 0.9]);
   const logoRotate = useTransform(scrollY, [0, 100], [0, 5]);
+  
+  // Spring values for mouse interactions
+  const logoRotateX = useSpring(mousePosition.y * 5, { stiffness: 300, damping: 30 });
+  const logoRotateY = useSpring(mousePosition.x * 5, { stiffness: 300, damping: 30 });
+  const linkRotateX = useSpring(mousePosition.y * 2, { stiffness: 300, damping: 30 });
+  const linkRotateY = useSpring(mousePosition.x * 2, { stiffness: 300, damping: 30 });
+  const linkX = useSpring(mousePosition.x * 3, { stiffness: 300, damping: 30 });
+  const linkY = useSpring(mousePosition.y * 3, { stiffness: 300, damping: 30 });
+  const buttonRotateX = useSpring(mousePosition.y * 3, { stiffness: 300, damping: 30 });
+  const buttonRotateY = useSpring(mousePosition.x * 3, { stiffness: 300, damping: 30 });
+  const mobileButtonRotateX = useSpring(mousePosition.y * 2, { stiffness: 300, damping: 30 });
+  const mobileButtonRotateY = useSpring(mousePosition.x * 2, { stiffness: 300, damping: 30 });
   
   const links = [
     { href: "#services", label: "Services" },
@@ -181,8 +193,8 @@ const NavBar = () => {
               style={{ 
                 scale: logoScale,
                 rotate: logoRotate,
-                rotateX: useSpring(mousePosition.y * 5, { stiffness: 300, damping: 30 }),
-                rotateY: useSpring(mousePosition.x * 5, { stiffness: 300, damping: 30 })
+                rotateX: logoRotateX,
+                rotateY: logoRotateY
               }}
             >
               <motion.div
@@ -233,7 +245,7 @@ const NavBar = () => {
               initial="hidden"
               animate="visible"
             >
-              {links.map((link, i) => (
+              {links.map((link) => (
                 <motion.a
                   key={link.href}
                   href={link.href}
@@ -245,15 +257,15 @@ const NavBar = () => {
                     transition: { duration: 0.2, type: "spring", stiffness: 400 }
                   }}
                   style={{
-                    rotateX: useSpring(mousePosition.y * 2, { stiffness: 300, damping: 30 }),
-                    rotateY: useSpring(mousePosition.x * 2, { stiffness: 300, damping: 30 })
+                    rotateX: linkRotateX,
+                    rotateY: linkRotateY
                   }}
                 >
                   <motion.span
                     className="relative z-10"
                     style={{
-                      x: useSpring(mousePosition.x * 3, { stiffness: 300, damping: 30 }),
-                      y: useSpring(mousePosition.y * 3, { stiffness: 300, damping: 30 })
+                      x: linkX,
+                      y: linkY
                     }}
                   >
                     {link.label}
@@ -306,8 +318,8 @@ const NavBar = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
                 style={{
-                  rotateX: useSpring(mousePosition.y * 3, { stiffness: 300, damping: 30 }),
-                  rotateY: useSpring(mousePosition.x * 3, { stiffness: 300, damping: 30 })
+                  rotateX: buttonRotateX,
+                  rotateY: buttonRotateY
                 }}
               >
                 <motion.div
@@ -371,8 +383,8 @@ const NavBar = () => {
               }}
               whileTap={{ scale: 0.95 }}
               style={{
-                rotateX: useSpring(mousePosition.y * 2, { stiffness: 300, damping: 30 }),
-                rotateY: useSpring(mousePosition.x * 2, { stiffness: 300, damping: 30 })
+                rotateX: mobileButtonRotateX,
+                rotateY: mobileButtonRotateY
               }}
             >
               <motion.div
@@ -463,7 +475,7 @@ const NavBar = () => {
                   initial="hidden"
                   animate="visible"
                 >
-                  {links.map((link, i) => (
+                  {links.map((link) => (
                     <motion.a
                       key={link.href}
                       href={link.href}
@@ -505,8 +517,7 @@ const NavBar = () => {
                         transition={{
                           duration: 2,
                           repeat: Infinity,
-                          ease: "easeInOut",
-                          delay: i * 0.2
+                          ease: "easeInOut"
                         }}
                       />
                     </motion.a>

@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Button } from "../../../components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "../../../components/ui/card";
 import { Badge } from "../../../components/ui/badge";
@@ -186,10 +187,12 @@ const Hero = () => {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <img 
+                  <Image 
                     alt="preview" 
                     className="w-full h-full object-cover" 
                     src="https://images.unsplash.com/photo-1526498460520-4c246339dccb?q=80&w=1800&auto=format&fit=crop"
+                    width={1800}
+                    height={1012}
                   />
                 </motion.div>
                 <div className="grid grid-cols-3 gap-3 mt-4 text-sm">

@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Logos = () => {
   const brands = [
@@ -157,9 +158,11 @@ const Logos = () => {
                   }}
                 />
                 
-                <img 
+                <Image 
                   src={brand.logo} 
                   alt={brand.name} 
+                  width={64}
+                  height={64}
                   className="h-12 md:h-16 w-auto object-contain grayscale group-hover/logo:grayscale-0 transition-all duration-500 relative z-10"
                   style={{
                     filter: `drop-shadow(0 0 20px ${brand.glowColor})`
