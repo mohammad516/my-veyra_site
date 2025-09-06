@@ -410,7 +410,7 @@ const Hero = () => {
               <Image 
                 alt="Professional woman smiling" 
                 className="w-full h-full object-cover" 
-                src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3"
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop"
                 width={1000}
                 height={1200}
               />
