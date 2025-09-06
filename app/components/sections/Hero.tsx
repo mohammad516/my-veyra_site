@@ -408,11 +408,12 @@ const Hero = () => {
               style={{ transformStyle: "preserve-3d" }}
             >
               <Image 
-                alt="Professional woman smiling" 
+                alt="Professional business woman" 
                 className="w-full h-full object-cover" 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop"
+                src="/h4.webp"
                 width={1000}
                 height={1200}
+                priority
               />
               
               {/* Gradient overlay for depth */}
