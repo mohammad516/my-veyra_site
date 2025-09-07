@@ -7,7 +7,7 @@ import { Textarea } from "../../../components/ui/textarea";
 import { Button } from "../../../components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../../../components/ui/dialog";
 import { CheckCircle2, Send, Sparkles, AlertCircle } from "lucide-react";
-import { SiTelegram, SiWhatsapp, SiLinkedin } from "react-icons/si";
+import { SiWhatsapp, SiInstagram, SiFacebook, SiTiktok } from "react-icons/si";
 
 const Contact = () => {
   const [open, setOpen] = useState(false);
@@ -304,11 +304,14 @@ const Contact = () => {
                       <a href="https://wa.me/" target="_blank" rel="noreferrer" aria-label="WhatsApp" className="transition-transform hover:scale-110 hover-glow">
                         <SiWhatsapp className="w-5 h-5 text-emerald-500" />
                       </a>
-                      <a href="https://t.me/" target="_blank" rel="noreferrer" aria-label="Telegram" className="transition-transform hover:scale-110 hover-glow">
-                        <SiTelegram className="w-5 h-5 text-sky-500" />
+                      <a href="https://instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram" className="transition-transform hover:scale-110 hover-glow">
+                        <SiInstagram className="w-5 h-5 text-pink-500" />
                       </a>
-                      <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="transition-transform hover:scale-110 hover-glow">
-                        <SiLinkedin className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      <a href="https://facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook" className="transition-transform hover:scale-110 hover-glow">
+                        <SiFacebook className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      </a>
+                      <a href="https://tiktok.com/" target="_blank" rel="noreferrer" aria-label="TikTok" className="transition-transform hover:scale-110 hover-glow">
+                        <SiTiktok className="w-5 h-5 text-neutral-800 dark:text-neutral-200" />
                       </a>
                     </div>
                   </div>
