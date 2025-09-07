@@ -1,5 +1,5 @@
 "use client";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { Button } from "../../../components/ui/button";
 import { Badge } from "../../../components/ui/badge";
@@ -90,7 +90,6 @@ const Hero = () => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 1000], [0, -100]);
   const y2 = useTransform(scrollY, [0, 1000], [0, 100]);
-  const y3 = useTransform(scrollY, [0, 1000], [0, -50]);
 
   return (
     <div id="home" className="relative overflow-hidden min-h-screen">

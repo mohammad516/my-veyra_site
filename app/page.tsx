@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useSpring } from "framer-motion";
+import { useState, useEffect } from "react";
 import NavBar from "./components/layout/NavBar";
 import Footer from "./components/layout/Footer";
 import Hero from "./components/sections/Hero";
@@ -11,6 +12,7 @@ import Work from "./components/sections/Work";
 import Process from "./components/sections/Process";
 import About from "./components/sections/About";
 import Contact from "./components/sections/Contact";
+import Loading from "./components/ui/Loading";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -20,8 +22,21 @@ export default function Home() {
     restDelta: 0.001
   });
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate initial page load
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <main className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-900 dark:text-white relative overflow-x-hidden">
+    <>
+      <Loading isLoading={isLoading} />
+      <main className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-900 dark:text-white relative overflow-x-hidden">
       {/* Scroll Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-500 origin-left z-50"
@@ -116,5 +131,6 @@ export default function Home() {
         </motion.div>
       </motion.div>
     </main>
+    </>
   );
 }
