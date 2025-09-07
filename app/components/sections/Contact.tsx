@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "../../../components/ui/card";
 import { Input } from "../../../components/ui/input";
@@ -7,11 +7,32 @@ import { Textarea } from "../../../components/ui/textarea";
 import { Button } from "../../../components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../../../components/ui/dialog";
 import { CheckCircle2, Send, Sparkles, AlertCircle } from "lucide-react";
+import { SiTelegram, SiWhatsapp, SiLinkedin } from "react-icons/si";
 
 const Contact = () => {
   const [open, setOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [justSubmitted, setJustSubmitted] = useState(false);
+  const confettiRef = useRef<(() => void) | null>(null);
+
+  const fireConfetti = () => {
+    const colors = ["#22d3ee", "#3b82f6", "#6366f1", "#10b981", "#f59e0b"];
+    const count = 70;
+    for (let i = 0; i < count; i++) {
+      const piece = document.createElement('div');
+      piece.className = 'confetti-piece';
+      piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+      piece.style.left = Math.random() * 100 + 'vw';
+      piece.style.transform = `translateY(-20vh) rotate(${Math.random() * 360}deg)`;
+      const duration = 1500 + Math.random() * 1200;
+      const delay = Math.random() * 120;
+      piece.style.animationDuration = duration + 'ms';
+      piece.style.animationDelay = delay + 'ms';
+      document.body.appendChild(piece);
+      setTimeout(() => piece.remove(), duration + delay + 100);
+    }
+  };
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -46,6 +67,11 @@ const Contact = () => {
         // Success - show success dialog and reset form
         setOpen(true);
         setFormData({ name: '', email: '', message: '' });
+        setJustSubmitted(true);
+        // fire confetti
+        fireConfetti();
+        // reset success state after a short delay
+        setTimeout(() => setJustSubmitted(false), 2000);
       } else {
         // Error from API
         setError(result.error || 'Failed to send message. Please try again.');
@@ -58,6 +84,18 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
+
+  // Clear shake after render when an error appears
+  const formRef = useRef<HTMLFormElement | null>(null);
+  useEffect(() => {
+    if (error && formRef.current) {
+      const el = formRef.current;
+      el.classList.remove('shake-once');
+      // force reflow then add again to retrigger
+      void el.offsetWidth;
+      el.classList.add('shake-once');
+    }
+  }, [error]);
 
   const features = [
     "Fixed‑scope sprints",
@@ -161,9 +199,9 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Card className="rounded-2xl border-neutral-200 dark:border-neutral-800 backdrop-blur-sm bg-white/80 dark:bg-neutral-900/80 shadow-xl">
+            <Card className="rounded-2xl border-neutral-200 dark:border-neutral-800 backdrop-blur-xl bg-white/75 dark:bg-neutral-900/70 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.3)]">
               <CardContent className="p-6">
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
@@ -176,7 +214,7 @@ const Contact = () => {
                         required
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="w-full rounded-xl border-neutral-200 dark:border-neutral-700 bg-white/50 dark:bg-neutral-800/50 backdrop-blur-sm"
+                        className="w-full rounded-xl border-neutral-200 dark:border-neutral-700 bg-white/50 dark:bg-neutral-800/50 backdrop-blur-sm focus-glow transition-shadow"
                         placeholder="Your name"
                         disabled={isSubmitting}
                       />
@@ -192,7 +230,7 @@ const Contact = () => {
                         required
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full rounded-xl border-neutral-200 dark:border-neutral-700 bg-white/50 dark:bg-neutral-800/50 backdrop-blur-sm"
+                        className="w-full rounded-xl border-neutral-200 dark:border-neutral-700 bg-white/50 dark:bg-neutral-800/50 backdrop-blur-sm focus-glow transition-shadow"
                         placeholder="your@email.com"
                         disabled={isSubmitting}
                       />
@@ -203,17 +241,19 @@ const Contact = () => {
                     <label htmlFor="message" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
                       Message *
                     </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      required
-                      rows={4}
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      className="w-full rounded-xl border-neutral-200 dark:border-neutral-700 bg-white/50 dark:bg-neutral-800/50 backdrop-blur-sm resize-none"
-                      placeholder="Tell us about your project..."
-                      disabled={isSubmitting}
-                    />
+                    <div className="rounded-xl p-[1px] bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 animate-gradient">
+                      <Textarea
+                        id="message"
+                        name="message"
+                        required
+                        rows={5}
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        className="w-full rounded-[11px] border-transparent bg-white/70 dark:bg-neutral-900/70 backdrop-blur-sm resize-none focus-glow transition-shadow"
+                        placeholder="Tell us about your project..."
+                        disabled={isSubmitting}
+                      />
+                    </div>
                   </div>
 
                   {/* Error Message */}
@@ -228,10 +268,15 @@ const Contact = () => {
                     </motion.div>
                   )}
                   
+                  {/* Subtle subtitle above the button */}
+                  <p className="text-xs text-neutral-500 dark:text-neutral-400 text-center">
+                    We usually reply within 24h
+                  </p>
+
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed border-0 overflow-hidden relative group"
+                    className="w-full rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed border-0 overflow-hidden relative group animate-gradient"
                   >
                     {isSubmitting ? (
                       <motion.div
@@ -239,13 +284,34 @@ const Contact = () => {
                         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                         className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
                       />
+                    ) : justSubmitted ? (
+                      <>
+                        <span className="mr-2">✅</span>
+                        Sent
+                      </>
                     ) : (
                       <>
-                        <Send className="w-4 h-4 mr-2" />
+                        <span className="mr-2 inline-block transform transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">✈️</span>
                         Send Message
                       </>
                     )}
                   </Button>
+
+                  {/* Or reach us directly */}
+                  <div className="pt-2 text-center">
+                    <p className="text-[11px] text-neutral-500 dark:text-neutral-400">Or reach us directly</p>
+                    <div className="mt-2 flex items-center justify-center gap-4">
+                      <a href="https://wa.me/" target="_blank" rel="noreferrer" aria-label="WhatsApp" className="transition-transform hover:scale-110 hover-glow">
+                        <SiWhatsapp className="w-5 h-5 text-emerald-500" />
+                      </a>
+                      <a href="https://t.me/" target="_blank" rel="noreferrer" aria-label="Telegram" className="transition-transform hover:scale-110 hover-glow">
+                        <SiTelegram className="w-5 h-5 text-sky-500" />
+                      </a>
+                      <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="transition-transform hover:scale-110 hover-glow">
+                        <SiLinkedin className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      </a>
+                    </div>
+                  </div>
                 </form>
               </CardContent>
             </Card>
