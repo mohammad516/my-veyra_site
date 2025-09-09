@@ -158,7 +158,7 @@ const Footer = () => (
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              © {new Date().getFullYear()} YourBrand. Crafted with{" "}
+              © {new Date().getFullYear()} Veyra. Crafted with{" "}
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
