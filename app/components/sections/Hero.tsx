@@ -219,7 +219,7 @@ const Hero = () => {
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 1.5 }}
             >
-              websites that convert
+              websites
             </motion.span>
           </motion.h1>
           
