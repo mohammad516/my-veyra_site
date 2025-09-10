@@ -171,7 +171,7 @@ const Footer = () => (
             <div className="hidden lg:block text-neutral-300 dark:text-neutral-600">|</div>
             
             <motion.a 
-              href="mailto:info@veyra.website" 
+              href="mailto:hello@example.com" 
               className="inline-flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 px-3 py-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800/50 hover:underline"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -180,7 +180,7 @@ const Footer = () => (
               whileHover={{ scale: 1.05 }}
             >
               <Mail className="w-4 h-4" />
-              hello@example.com
+              info@veyra.website
             </motion.a>
           </div>
         </div>
