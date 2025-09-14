@@ -301,16 +301,16 @@ const Contact = () => {
                   <div className="pt-2 text-center">
                     <p className="text-[11px] text-neutral-500 dark:text-neutral-400">Or reach us directly</p>
                     <div className="mt-2 flex items-center justify-center gap-4">
-                      <a href="https://wa.me/" target="_blank" rel="noreferrer" aria-label="WhatsApp" className="transition-transform hover:scale-110 hover-glow">
+                      <a href="https://wa.me/96171709133?text=Hello%20I%20want%20to%20order" target="_blank" rel="noreferrer" aria-label="WhatsApp" className="transition-transform hover:scale-110 hover-glow">
                         <SiWhatsapp className="w-5 h-5 text-emerald-500" />
                       </a>
-                      <a href="https://instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram" className="transition-transform hover:scale-110 hover-glow">
+                      <a href="https://www.instagram.com/veyra2211/" target="_blank" rel="noreferrer" aria-label="Instagram" className="transition-transform hover:scale-110 hover-glow">
                         <SiInstagram className="w-5 h-5 text-pink-500" />
                       </a>
-                      <a href="https://facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook" className="transition-transform hover:scale-110 hover-glow">
+                      <a href="https://www.facebook.com/profile.php?id=61579729479913" target="_blank" rel="noreferrer" aria-label="Facebook" className="transition-transform hover:scale-110 hover-glow">
                         <SiFacebook className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                       </a>
-                      <a href="https://tiktok.com/" target="_blank" rel="noreferrer" aria-label="TikTok" className="transition-transform hover:scale-110 hover-glow">
+                      <a href="https://www.tiktok.com/@veyra2211?_t=ZS-8zj371LZP1O&_r=1" target="_blank" rel="noreferrer" aria-label="TikTok" className="transition-transform hover:scale-110 hover-glow">
                         <SiTiktok className="w-5 h-5 text-neutral-800 dark:text-neutral-200" />
                       </a>
                     </div>
