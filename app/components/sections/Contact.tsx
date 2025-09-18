@@ -304,7 +304,7 @@ const Contact = () => {
                       <a href="https://wa.me/96171709133?text=Hello%20I%20want%20to%20order" target="_blank" rel="noreferrer" aria-label="WhatsApp" className="transition-transform hover:scale-110 hover-glow">
                         <SiWhatsapp className="w-5 h-5 text-emerald-500" />
                       </a>
-                      <a href="https://www.instagram.com/veyra2211/" target="_blank" rel="noreferrer" aria-label="Instagram" className="transition-transform hover:scale-110 hover-glow">
+                      <a href="https://www.instagram.com/veyra.web/" target="_blank" rel="noreferrer" aria-label="Instagram" className="transition-transform hover:scale-110 hover-glow">
                         <SiInstagram className="w-5 h-5 text-pink-500" />
                       </a>
                       <a href="https://www.facebook.com/profile.php?id=61579729479913" target="_blank" rel="noreferrer" aria-label="Facebook" className="transition-transform hover:scale-110 hover-glow">

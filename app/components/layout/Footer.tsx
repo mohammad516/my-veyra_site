@@ -145,7 +145,7 @@ const Footer = () => (
           >
             <SocialIcon href="https://wa.me/96171709133?text=Hello%20I%20want%20to%20order" icon={FaWhatsapp} label="WhatsApp" delay={0} />
             <SocialIcon href="https://www.facebook.com/profile.php?id=61579729479913" icon={Facebook} label="Facebook" delay={0.1} />
-            <SocialIcon href="https://www.instagram.com/veyra2211/" icon={Instagram} label="Instagram" delay={0.2} />
+            <SocialIcon href="https://www.instagram.com/veyra.web/" icon={Instagram} label="Instagram" delay={0.2} />
             <SocialIcon href="https://www.tiktok.com/@veyra2211?_t=ZS-8zj371LZP1O&_r=1" icon={FaTiktok} label="TikTok" delay={0.3} />
           </motion.div>
           
