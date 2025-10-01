@@ -26,8 +26,8 @@ const Services = () => {
 
   const services = [{
     icon: <Globe className="w-6 h-6"/>,
-    title: "Static Website",
-    price: "$100",
+    title: "Dynamic Website",
+    price: "$250",
     body: "Lightning-fast, lightweight websites perfect for personal portfolios and small businesses. Get your professional online presence with fast delivery and affordable pricing that won't break the bank.",
     color: "from-blue-500 to-indigo-500",
     features: ["Fast Delivery", "Lightweight Design", "Affordable Pricing"],
@@ -35,7 +35,7 @@ const Services = () => {
   }, {
     icon: <ShoppingCart className="w-6 h-6"/>,
     title: "eCommerce Website",
-    price: "$150",
+    price: "$250",
     body: "Complete online store solution with product catalog, secure cart & checkout, payment integration, and scalable design that grows with your business. Turn visitors into customers.",
     color: "from-emerald-500 to-teal-500",
     features: ["Product Catalog", "Payment Integration", "Scalable Design"],
@@ -43,7 +43,7 @@ const Services = () => {
   }, {
     icon: <Smartphone className="w-6 h-6"/>,
     title: "Mobile Application",
-    price: "$400",
+    price: "$500",
     body: "Cross-platform mobile apps for iOS and Android with smooth UX, push notifications, and custom features. Reach your customers wherever they are with a native app experience.",
     color: "from-purple-500 to-pink-500",
     features: ["Cross-Platform", "Push Notifications", "Custom Features"],
