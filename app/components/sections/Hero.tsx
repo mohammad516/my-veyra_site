@@ -409,7 +409,7 @@ const Hero = () => {
               <Image 
                 alt="Professional business woman" 
                 className="w-full h-full object-cover" 
-                src="/h4.webp"
+                src="https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762117639/h4_e9dgim.webp"
                 width={1000}
                 height={1200}
                 priority

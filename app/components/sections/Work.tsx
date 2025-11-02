@@ -13,32 +13,32 @@ const Work = () => {
     {
       title: "abbasbaba.com",
       link: "https://www.abbasbaba.com",
-      img: "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3"
+      img: "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762116686/p8_stceu8.avif"
     },
     {
       title: "ycpros.co",
       link: "https://www.ycpros.co",
-      img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3"
+      img: "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762116686/p9_x3k7h3.avif"
     },
     {
       title: "scentodiitalia.com",
       link: "https://www.scentodiitalia.com",
-      img: "https://images.pexels.com/photos/6621225/pexels-photo-6621225.jpeg?q=80&w=1600&auto=compress&cs=tinysrgb"
+      img: "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762116686/p10_jlsnex.webp"
     },
     {
       title: "sensesbynature.com",
       link: "https://www.sensesbynature.com",
-      img: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3"
+      img: "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762116686/p11_dmqcrm.avif"
     },
     {
       title: "azeec.com",
       link: "https://www.azeec.com",
-      img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3"
+      img: "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762116685/p12_ittp8b.avif"
     },
     {
       title: "aquanotch.com",
       link: "https://www.aquanotch.com",
-      img: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3"
+      img: "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762116686/p13_ubm2lp.avif"
     }
   ];
 

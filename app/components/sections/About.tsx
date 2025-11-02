@@ -93,7 +93,7 @@ const About = () => {
                 <motion.img 
                   alt="team" 
                   className="rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-lg" 
-                  src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1600&auto=format&fit=crop"
+                  src="https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762116686/p1_sydcfb.avif"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 />

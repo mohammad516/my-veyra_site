@@ -8,42 +8,42 @@ const WhatWeDo = () => {
       icon: <Code className="w-6 h-6" />,
       title: "Web Development",
       subtitle: "Modern & Scalable Solutions",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&crop=center",
+      image: "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762116685/p2_l5yhna.jpg",
       color: "from-blue-500 to-indigo-500"
     },
     {
       icon: <Palette className="w-6 h-6" />,
       title: "UI/UX Design",
       subtitle: "Beautiful & Intuitive Interfaces",
-      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop&crop=center",
+      image: "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762116685/p3_j95gro.jpg",
       color: "from-pink-500 to-purple-500"
     },
     {
       icon: <Rocket className="w-6 h-6" />,
       title: "Digital Marketing",
       subtitle: "Growth & Brand Awareness",
-      image: "https://images.unsplash.com/photo-1557838923-2985c318be48?w=400&h=300&fit=crop&crop=center",
+      image: "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762116685/p4_bectmc.jpg",
       color: "from-emerald-500 to-teal-500"
     },
     {
       icon: <ShieldCheck className="w-6 h-6" />,
       title: "Security & Compliance",
       subtitle: "Protect Your Digital Assets",
-      image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=400&h=300&fit=crop&crop=center",
+      image: "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762116686/p5_ycwdxu.jpg",
       color: "from-orange-500 to-red-500"
     },
     {
       icon: <Zap className="w-6 h-6" />,
       title: "Performance Optimization",
       subtitle: "Lightning Fast Experiences",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&crop=center",
+      image: "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762116686/p6_fuk7q1.jpg",
       color: "from-yellow-500 to-orange-500"
     },
     {
       icon: <Globe className="w-6 h-6" />,
       title: "Cloud Solutions",
       subtitle: "Scalable Infrastructure",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop&crop=center",
+      image: "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762116686/p7_az1elo.jpg",
       color: "from-cyan-500 to-blue-500"
     }
   ];

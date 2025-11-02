@@ -205,7 +205,7 @@ const NavBar = () => {
                 }}
               >
                 <motion.img 
-                  src="/log.png" 
+                  src="https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762117640/log_ctyaz9.png" 
                   alt="Logo" 
                   className="h-18 w-auto object-contain relative z-10"
                 />

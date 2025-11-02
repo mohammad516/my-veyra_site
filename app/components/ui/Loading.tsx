@@ -92,7 +92,7 @@ const Loading = ({ isLoading, onComplete }: LoadingProps) => {
                 }}
               >
                 <Image 
-                  src="/log.png" 
+                  src="https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762117640/log_ctyaz9.png" 
                   alt="Logo" 
                   width={80}
                   height={80}
