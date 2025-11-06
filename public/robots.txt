@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://veyra.website
+
+# Sitemaps
+Sitemap: https://veyra.website/sitemap.xml

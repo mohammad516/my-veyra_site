@@ -13,8 +13,47 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Veyra",
-  description: "Veyra Website",
+  title: {
+    default: "Veyra - Crafting High-Impact Websites",
+    template: "%s | Veyra"
+  },
+  description: "Veyra is a modern platform offering amazing features and services for users worldwide. We blend strategy, design, and engineering to launch fast, responsive, SEO-ready sites.",
+  keywords: ["web development", "website design", "SEO", "responsive design", "modern websites", "Veyra"],
+  authors: [{ name: "Veyra" }],
+  creator: "Veyra",
+  publisher: "Veyra",
+  metadataBase: new URL("https://veyra.website"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://veyra.website",
+    siteName: "Veyra",
+    title: "Veyra - Crafting High-Impact Websites",
+    description: "Veyra is a modern platform offering amazing features and services for users worldwide. We blend strategy, design, and engineering to launch fast, responsive, SEO-ready sites.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Veyra - Crafting High-Impact Websites",
+    description: "Veyra is a modern platform offering amazing features and services for users worldwide.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    // Add your Google Search Console verification code here when available
+    // google: "your-verification-code",
+  },
 };
 
 export default function RootLayout({
