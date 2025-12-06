@@ -14,31 +14,47 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Veyra - Crafting High-Impact Websites",
+    default: "Veyra — Web Development Agency Beirut Lebanon",
     template: "%s | Veyra"
   },
-  description: "Veyra is a modern platform offering amazing features and services for users worldwide. We blend strategy, design, and engineering to launch fast, responsive, SEO-ready sites.",
-  keywords: ["web development", "website design", "SEO", "responsive design", "modern websites", "Veyra"],
+  description:
+    "Veyra is a Beirut-based web development agency building fast, secure, and SEO-optimized websites for clients in Lebanon and worldwide. We combine strategy, design, and engineering to deliver high-performance digital experiences.",
+  keywords: [
+    "web development Lebanon",
+    "web development Beirut",
+    "website design Lebanon",
+    "web agency Lebanon",
+    "remote web developers",
+    "SEO optimized websites",
+    "custom website development",
+    "modern web design"
+  ],
   authors: [{ name: "Veyra" }],
   creator: "Veyra",
   publisher: "Veyra",
+
   metadataBase: new URL("https://veyra.website"),
   alternates: {
     canonical: "/",
   },
+
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://veyra.website",
     siteName: "Veyra",
-    title: "Veyra - Crafting High-Impact Websites",
-    description: "Veyra is a modern platform offering amazing features and services for users worldwide. We blend strategy, design, and engineering to launch fast, responsive, SEO-ready sites.",
+    title: "Veyra — Web Development Agency Beirut Lebanon",
+    description:
+      "Veyra builds high-performance, SEO-ready websites for brands in Lebanon and around the world. Strategy, design, and engineering combined into one seamless service.",
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Veyra - Crafting High-Impact Websites",
-    description: "Veyra is a modern platform offering amazing features and services for users worldwide.",
+    title: "Veyra — Web Development Agency Beirut Lebanon",
+    description:
+      "High-performance, SEO-ready websites crafted by a Beirut-based web development agency working with clients worldwide.",
   },
+
   robots: {
     index: true,
     follow: true,
@@ -47,14 +63,15 @@ export const metadata: Metadata = {
       follow: true,
       "max-video-preview": -1,
       "max-image-preview": "large",
-      "max-snippet": -1,
+      "max-snippet": -1
     },
   },
+
   verification: {
-    // Add your Google Search Console verification code here when available
-    // google: "your-verification-code",
+    // google: "your-code-here"
   },
 };
+
 
 export default function RootLayout({
   children,
