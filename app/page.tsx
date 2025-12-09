@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useSpring } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import NavBar from "./components/layout/NavBar";
 import Footer from "./components/layout/Footer";
 import Hero from "./components/sections/Hero";
@@ -22,16 +22,7 @@ export default function Home() {
     restDelta: 0.001
   });
 
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate initial page load
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const [isLoading] = useState(false);
 
   return (
     <>

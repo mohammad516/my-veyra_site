@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Code, Palette, Rocket, ShieldCheck, Zap, Globe } from "lucide-react";
 
 const WhatWeDo = () => {
@@ -116,10 +117,14 @@ const WhatWeDo = () => {
               >
                 {/* Background image */}
                 <div className="relative h-48 overflow-hidden">
-                  <motion.img
+                  <Image
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    loading="lazy"
+                    quality={80}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                 </div>

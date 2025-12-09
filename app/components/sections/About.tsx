@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const About = () => {
   const metrics = [
@@ -82,37 +83,18 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <motion.div
-              whileHover={{ 
-                scale: 1.02,
-                rotateY: 2,
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="relative">
-                <motion.img 
-                  alt="team" 
-                  className="rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-lg" 
-                  src="https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762116686/p1_sydcfb.avif"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                />
-                <motion.div
-                  className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg"
-                  animate={{
-                    scale: [1, 1.1, 1],
-                    rotate: [0, 5, 0],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                >
-                  ✨
-                </motion.div>
-              </div>
-            </motion.div>
+            <div className="relative transition-transform duration-300 hover:scale-[1.02]">
+              <Image 
+                alt="team" 
+                className="rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-lg" 
+                src="https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762116686/p1_sydcfb.avif"
+                width={600}
+                height={400}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                loading="lazy"
+                quality={85}
+              />
+            </div>
           </motion.div>
         </div>
       </div>
