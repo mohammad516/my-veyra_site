@@ -64,8 +64,7 @@ const Hero = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              <span className="block sm:inline">Creating Digital Experiences</span>
-              <span className="block sm:inline sm:ml-1"></span>
+              Creating Digital Experiences
             </motion.span>
             <motion.span 
               className="block text-neutral-900 dark:text-white mt-1 sm:mt-0"
