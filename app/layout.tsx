@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s | Veyra"
   },
   description:
-    "Veyra is a Beirut-based web development agency building fast, secure, and SEO-optimized websites for clients in Lebanon and worldwide. We combine strategy, design, and engineering to deliver high-performance digital experiences.",
+    "Veyra a web development agency based in Beirut building fast, secure, and SEO-optimized websites for clients in Lebanon and worldwide. We combine strategy, design, and engineering to deliver high-performance digital experiences.",
   keywords: [
     "web development Lebanon",
     "web development Beirut",
