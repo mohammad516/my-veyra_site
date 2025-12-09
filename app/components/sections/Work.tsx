@@ -82,8 +82,7 @@ const Work = () => {
               transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
               className="text-neutral-600 dark:text-neutral-300 mt-4 text-lg max-w-2xl leading-relaxed"
             >
-              A curated collection of innovative projects that showcase creativity, 
-              technical excellence, and modern design principles.
+             A curated collection of innovative projects that highlight creativity, technical excellence, modern design principles, and SEO-optimized experiences built for visibility and growth.
             </motion.p>
           </div>
           

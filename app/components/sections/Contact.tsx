@@ -6,7 +6,7 @@ import { Input } from "../../../components/ui/input";
 import { Textarea } from "../../../components/ui/textarea";
 import { Button } from "../../../components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../../../components/ui/dialog";
-import { CheckCircle2, Send, Sparkles, AlertCircle } from "lucide-react";
+import { CheckCircle2, Sparkles, AlertCircle } from "lucide-react";
 import { SiWhatsapp, SiInstagram, SiFacebook, SiTiktok } from "react-icons/si";
 
 const Contact = () => {
@@ -14,7 +14,6 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [justSubmitted, setJustSubmitted] = useState(false);
-  const confettiRef = useRef<(() => void) | null>(null);
 
   const fireConfetti = () => {
     const colors = ["#22d3ee", "#3b82f6", "#6366f1", "#10b981", "#f59e0b"];

@@ -1,5 +1,5 @@
 "use client";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import { Button } from "../../../components/ui/button";
@@ -9,7 +9,6 @@ import Section from "../../../components/ui/Section";
 
 const Hero = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <div id="home" ref={ref} className="relative overflow-hidden min-h-screen">
@@ -28,7 +27,7 @@ const Hero = () => {
             duration: 0.6,
             ease: "easeOut"
           }} 
-          className="flex flex-col gap-8"
+            className="flex flex-col gap-4 sm:gap-6 md:gap-8"
         >
           {/* Badge */}
           <motion.div
@@ -56,14 +55,27 @@ const Hero = () => {
               delay: 0.2,
               ease: "easeOut"
             }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.15] sm:leading-[1.1]"
           >
-            <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-400 bg-clip-text text-transparent">
-            Creating Digital Experiences That
-            </span>{" "}
-            <span className="text-neutral-900 dark:text-white">
-             Drive Growth
-            </span>
+            <motion.span 
+              className="block bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-400 bg-clip-text text-transparent mb-1 sm:mb-2"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <span className="block sm:inline">Creating Digital Experiences</span>
+              <span className="block sm:inline sm:ml-1"></span>
+            </motion.span>
+            <motion.span 
+              className="block text-neutral-900 dark:text-white mt-1 sm:mt-0"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              That Drive Growth
+            </motion.span>
           </motion.h1>
           
           <motion.p 
@@ -75,7 +87,7 @@ const Hero = () => {
               delay: 0.3,
               ease: "easeOut"
             }}
-            className="text-lg text-neutral-600 dark:text-neutral-300 max-w-xl leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-neutral-600 dark:text-neutral-300 max-w-2xl leading-relaxed"
           >
 A web development agency based in Beirut, Lebanon, driven by a strong belief in the power of technology to transform business practices and create lasting digital impact.
           </motion.p>
