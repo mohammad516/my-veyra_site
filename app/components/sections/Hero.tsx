@@ -27,7 +27,7 @@ const Hero = () => {
             duration: 0.6,
             ease: "easeOut"
           }} 
-            className="flex flex-col gap-4 sm:gap-6 md:gap-8"
+          className="flex flex-col gap-4 sm:gap-6 md:gap-8 w-full"
         >
           {/* Badge */}
           <motion.div
@@ -55,12 +55,13 @@ const Hero = () => {
               delay: 0.2,
               ease: "easeOut"
             }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.15] sm:leading-[1.1]"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.15] sm:leading-[1.1] w-full"
           >
             <motion.span 
-              className="block bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-400 bg-clip-text text-transparent mb-1 sm:mb-2"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="block bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-400 bg-clip-text text-transparent mb-1 sm:mb-2 whitespace-nowrap sm:whitespace-normal"
+              style={{ fontSize: 'clamp(1.25rem, 6vw, 2.5rem)' }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
@@ -68,8 +69,9 @@ const Hero = () => {
             </motion.span>
             <motion.span 
               className="block text-neutral-900 dark:text-white mt-1 sm:mt-0"
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              style={{ fontSize: 'clamp(1.25rem, 6vw, 2.5rem)' }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
