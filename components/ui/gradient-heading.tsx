@@ -80,3 +80,4 @@ export type Weight = "default" | "thin" | "base" | "semi" | "bold" | "black"
 
 export { GradientHeading, headingVariants }
 
+
