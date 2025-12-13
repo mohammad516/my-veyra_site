@@ -55,10 +55,10 @@ const Hero = () => {
               delay: 0.2,
               ease: "easeOut"
             }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.15] sm:leading-[1.1] w-full"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.3] sm:leading-[1.25] w-full overflow-visible"
           >
             <motion.span 
-              className="block bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-400 bg-clip-text text-transparent mb-1 sm:mb-2 whitespace-nowrap sm:whitespace-normal"
+              className="block bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-400 bg-clip-text text-transparent mb-1 sm:mb-2 pb-2 sm:pb-3 whitespace-nowrap sm:whitespace-normal overflow-visible"
               style={{ fontSize: 'clamp(1.25rem, 6vw, 2.5rem)' }}
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}

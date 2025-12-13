@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useScroll, useSpring } from "framer-motion";
-import { useState } from "react";
+import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import NavBar from "./components/layout/NavBar";
 import Footer from "./components/layout/Footer";
 import Hero from "./components/sections/Hero";
@@ -12,7 +12,7 @@ import Work from "./components/sections/Work";
 import Process from "./components/sections/Process";
 import About from "./components/sections/About";
 import Contact from "./components/sections/Contact";
-import Loading from "./components/ui/Loading";
+import LiquidLoading from "@/components/ui/liquid-loader";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -22,11 +22,48 @@ export default function Home() {
     restDelta: 0.001
   });
 
-  const [isLoading] = useState(false);
+  const [isInitialLoading, setIsInitialLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate page load - you can adjust the timing or use actual load events
+    const timer = setTimeout(() => {
+      setIsInitialLoading(false);
+    }, 2000); // Show loader for 2 seconds
+
+    // Optional: Hide loader when page is fully loaded
+    if (typeof window !== 'undefined') {
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          setIsInitialLoading(false);
+        }, 500);
+      });
+    }
+
+    return () => {
+      clearTimeout(timer);
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('load', () => {});
+      }
+    };
+  }, []);
 
   return (
     <>
-      <Loading isLoading={isLoading} />
+      <AnimatePresence>
+        {isInitialLoading && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-white"
+          >
+            {/* Liquid Loader */}
+            <div className="relative z-10">
+              <LiquidLoading />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <main className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-900 dark:text-white relative overflow-x-hidden">
       {/* Scroll Progress Bar */}
       <motion.div
