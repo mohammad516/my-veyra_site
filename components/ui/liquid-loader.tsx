@@ -18,7 +18,7 @@ const LiquidLoading = () => {
 
   useEffect(() => {
     let animationFrameId: number;
-    let startTime = Date.now();
+    const startTime = Date.now();
     
     const animate = () => {
       const currentTime = (Date.now() - startTime) * 0.003; // Faster speed multiplier
