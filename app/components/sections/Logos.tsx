@@ -1,6 +1,6 @@
 "use client";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { LogoCarousel } from "@/components/ui/logo-carousel";
 import {
   FacebookIcon,
@@ -16,6 +16,21 @@ import {
 const Logos = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [columnCount, setColumnCount] = useState(4);
+
+  useEffect(() => {
+    const updateColumnCount = () => {
+      // 3 columns on mobile (screens < 768px), 4 columns on larger screens
+      setColumnCount(window.innerWidth < 768 ? 3 : 4);
+    };
+
+    // Set initial value
+    updateColumnCount();
+
+    // Update on resize
+    window.addEventListener('resize', updateColumnCount);
+    return () => window.removeEventListener('resize', updateColumnCount);
+  }, []);
 
   const brands = [
     { name: "Facebook", id: 1, img: FacebookIcon },
@@ -66,7 +81,7 @@ const Logos = () => {
           transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
           className="flex justify-center items-center min-h-[200px]"
         >
-          <LogoCarousel columnCount={4} logos={brands} />
+          <LogoCarousel columnCount={columnCount} logos={brands} />
         </motion.div>
       </div>
     </section>
