@@ -166,7 +166,7 @@ A web development agency based in Beirut, Lebanon, driven by a strong belief in 
             <Image 
               alt="Professional business woman" 
               className="w-full h-full object-cover" 
-              src="https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762117639/h4_e9dgim.webp"
+              src="https://res-console.cloudinary.com/dp0wyn4dg/thumbnails/transform/v1/image/upload/Y19maWxsLGhfMjAwLHdfMjAw/v1/aGVyb19udjdkanI=/template_primary"
               width={1000}
               height={1200}
               priority
