@@ -9,7 +9,7 @@ const WhatWeDo = () => {
       icon: <Code className="w-6 h-6" />,
       title: "Web Development",
       subtitle: "Modern & Scalable Solutions",
-      image: "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762116685/p2_l5yhna.jpg",
+      image: "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1787679586/reere_a9ivcy.webp",
       color: "from-blue-500 to-indigo-500"
     },
     {
