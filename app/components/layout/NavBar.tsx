@@ -206,7 +206,7 @@ const NavBar = () => {
               >
                 <motion.img 
                   src="https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762117640/log_ctyaz9.png" 
-                  alt="Logo" 
+                  alt="Veyra Web Development agency Beirut Lebanon logo" 
                   className="h-18 w-auto object-contain relative z-10"
                 />
                 {/* Glow effect */}
