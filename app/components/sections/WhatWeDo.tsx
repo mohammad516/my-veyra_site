@@ -16,7 +16,7 @@ const WhatWeDo = () => {
       icon: <Palette className="w-6 h-6" />,
       title: "UI/UX Design",
       subtitle: "Beautiful & Intuitive Interfaces",
-      image: "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762116685/p3_j95gro.jpg",
+      image: "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1787679117/wqqwqw_zj6pg9.webp",
       color: "from-pink-500 to-purple-500"
     },
     {
