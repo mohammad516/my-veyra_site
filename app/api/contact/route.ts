@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
          // Send email using Resend
      const { data, error } = await resend.emails.send({
        from: 'onboarding@resend.dev',
-       to: ['veyra0047@gmail.com'],
+       to: ['info@veyra.website'],
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9;">
