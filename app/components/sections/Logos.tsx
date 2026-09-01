@@ -46,7 +46,7 @@ const Logos = () => {
   return (
     <section ref={ref} className="w-full py-20 relative overflow-hidden">
       {/* Static background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-50/30 via-purple-50/20 to-pink-50/30 dark:from-blue-950/20 dark:via-purple-950/15 dark:to-pink-950/20 -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-cyan-50/30 via-blue-50/20 to-emerald-50/30 dark:from-cyan-950/20 dark:via-blue-950/15 dark:to-emerald-950/20 -z-10" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}

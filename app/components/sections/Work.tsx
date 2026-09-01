@@ -45,7 +45,7 @@ const Work = () => {
   return (
     <section ref={ref} id="work" className="w-full py-24 relative overflow-hidden">
       {/* Enhanced background with floating elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/40 via-teal-50/30 to-cyan-50/40 dark:from-emerald-950/15 dark:via-teal-950/10 dark:to-cyan-950/15 -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/40 via-blue-50/30 to-emerald-50/40 dark:from-cyan-950/15 dark:via-blue-950/10 dark:to-emerald-950/15 -z-10" />
       
       
       {/* Content container - centered with max-width */}
@@ -59,7 +59,7 @@ const Work = () => {
           <div className="relative">
             {/* Decorative line */}
             <motion.div
-              className="absolute -left-4 top-0 w-1 h-16 bg-gradient-to-b from-emerald-500 to-teal-500 rounded-full"
+              className="absolute -left-4 top-0 w-1 h-16 bg-gradient-to-b from-cyan-500 to-blue-500 rounded-full"
               initial={{ scaleY: 0 }}
               animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -71,7 +71,7 @@ const Work = () => {
               transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight"
             >
-              <span className="bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-emerald-400 bg-clip-text text-transparent">
                 Selected Work
               </span>
             </motion.h2>
@@ -99,12 +99,12 @@ const Work = () => {
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <Button 
-                  className="rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white shadow-xl hover:shadow-2xl transition-all duration-500 px-8 py-4 text-lg font-semibold" 
+                  className="rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-500 to-emerald-500 hover:from-cyan-600 hover:via-blue-600 hover:to-emerald-600 text-white shadow-xl hover:shadow-2xl transition-all duration-500 px-8 py-4 text-lg font-semibold" 
                   variant="secondary"
                 >
                   <span className="relative z-10">Start yours</span>
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl opacity-0"
+                    className="absolute inset-0 bg-gradient-to-r from-cyan-600 via-blue-600 to-emerald-600 rounded-2xl opacity-0"
                     whileHover={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}
                   />
@@ -136,7 +136,7 @@ const Work = () => {
                 <a href={project.link} target="_blank" rel="noopener noreferrer" className="block h-full">
                   <Card className="group/card h-full rounded-3xl overflow-hidden border-0 backdrop-blur-xl bg-white/70 dark:bg-neutral-900/70 hover:bg-white/90 dark:hover:bg-neutral-900/90 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer relative">
                     {/* Gradient border effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 via-teal-500/20 to-cyan-500/20 rounded-3xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-emerald-500/20 rounded-3xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-300" />
                     <div className="absolute inset-[1px] bg-white dark:bg-neutral-900 rounded-3xl" />
                     
                     <div className="relative z-10 h-full flex flex-col">
@@ -156,7 +156,7 @@ const Work = () => {
                         
                         {/* Visit button */}
                         <div className="absolute bottom-4 right-4 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300">
-                          <span className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-sm font-semibold rounded-full text-white shadow-lg">
+                          <span className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 via-blue-500 to-emerald-500 text-sm font-semibold rounded-full text-white shadow-lg">
                             <span>→</span>
                             Visit Site
                           </span>

@@ -7,13 +7,13 @@ const LiquidLoading = () => {
   const [droplets, setDroplets] = useState([false, false, false, false, false, false, false]);
 
   const colors = [
-    'from-purple-500 to-pink-500',
-    'from-blue-500 to-purple-500', 
-    'from-cyan-400 to-blue-500',
-    'from-green-400 to-cyan-400',
-    'from-yellow-400 to-green-400',
-    'from-orange-400 to-yellow-400',
-    'from-red-500 to-orange-400'
+    'from-cyan-400 to-cyan-500',
+    'from-cyan-500 to-blue-400',
+    'from-blue-400 to-blue-500',
+    'from-blue-500 to-emerald-400',
+    'from-emerald-400 to-emerald-500',
+    'from-emerald-500 to-blue-500',
+    'from-blue-500 to-cyan-500'
   ];
 
   useEffect(() => {

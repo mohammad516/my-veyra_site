@@ -11,26 +11,26 @@ const Process = () => {
     icon: <Users className="w-6 h-6"/>,
     title: "1) Discover",
     body: "We align on goals, audience, and success metrics.",
-    color: "from-blue-500 to-indigo-500",
-    bgColor: "from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20",
+    color: "from-cyan-400 to-cyan-500",
+    bgColor: "from-cyan-50 to-cyan-100 dark:from-cyan-950/20 dark:to-cyan-900/20",
   }, {
     icon: <Palette className="w-6 h-6"/>,
     title: "2) Design",
     body: "Low‑fi wireframes to polished UI and interactions.",
-    color: "from-purple-500 to-pink-500",
-    bgColor: "from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20",
+    color: "from-blue-400 to-blue-500",
+    bgColor: "from-blue-50 to-blue-100 dark:from-blue-950/20 dark:to-blue-900/20",
   }, {
     icon: <Timer className="w-6 h-6"/>,
     title: "3) Build & Ship",
     body: "Iterative development with weekly previews and QA.",
-    color: "from-emerald-500 to-teal-500",
-    bgColor: "from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20",
+    color: "from-emerald-400 to-emerald-500",
+    bgColor: "from-emerald-50 to-emerald-100 dark:from-emerald-950/20 dark:to-emerald-900/20",
   }];
 
   return (
     <section ref={ref} id="process" className="w-full py-24 relative overflow-hidden">
       {/* Static background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-50/40 via-amber-50/30 to-yellow-50/40 dark:from-orange-950/15 dark:via-amber-950/10 dark:to-yellow-950/15 -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/40 via-blue-50/30 to-emerald-50/40 dark:from-cyan-950/15 dark:via-blue-950/10 dark:to-emerald-950/15 -z-10" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -46,7 +46,7 @@ const Process = () => {
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4"
           >
-            <span className="bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-emerald-400 bg-clip-text text-transparent">
               Our Process
             </span>
           </motion.h2>

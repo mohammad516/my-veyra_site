@@ -4,15 +4,15 @@ import Image from "next/image";
 
 const About = () => {
   const metrics = [
-    { key: "Projects", value: "180+", color: "from-indigo-500 to-purple-500" },
-    { key: "Avg. TTFB", value: "<150ms", color: "from-emerald-500 to-teal-500" },
-    { key: "NPS", value: "78", color: "from-pink-500 to-rose-500" }
+    { key: "Projects", value: "180+", color: "from-cyan-400 to-blue-500" },
+    { key: "Avg. TTFB", value: "<150ms", color: "from-blue-500 to-emerald-500" },
+    { key: "NPS", value: "78", color: "from-emerald-400 to-cyan-500" }
   ];
 
   return (
     <section id="about" className="w-full py-20 relative">
       {/* Background gradient - full width */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-purple-50/40 via-pink-50/20 to-orange-50/40 dark:from-purple-950/15 dark:via-pink-950/10 dark:to-orange-950/15 -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-cyan-50/40 via-blue-50/20 to-emerald-50/40 dark:from-cyan-950/15 dark:via-blue-950/10 dark:to-emerald-950/15 -z-10" />
       
       {/* Content container - centered with max-width */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,10 +30,10 @@ const About = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-3xl sm:text-4xl font-bold"
             >
-              <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-emerald-400 bg-clip-text text-transparent">
                 Small team.
               </span>{" "}
-              <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-500 via-blue-500 to-emerald-400 bg-clip-text text-transparent">
                 Big outcomes.
               </span>
             </motion.h2>

@@ -33,7 +33,7 @@ const BackToTopButton = () => {
   return (
     <motion.button
       onClick={scrollToTop}
-      className={`fixed bottom-6 right-6 z-50 p-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 ${
+      className={`fixed bottom-6 right-6 z-50 p-3 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-emerald-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 ${
         isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
       }`}
       initial={{ scale: 0, rotate: -180 }}
@@ -79,7 +79,7 @@ const SocialIcon = ({
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="p-2 rounded-lg bg-white/10 dark:bg-neutral-800/20 backdrop-blur-sm border border-white/20 dark:border-neutral-700/30 hover:border-indigo-400/50 transition-all duration-300"
+    className="p-2 rounded-lg bg-white/10 dark:bg-neutral-800/20 backdrop-blur-sm border border-white/20 dark:border-neutral-700/30 hover:border-blue-400/50 transition-all duration-300"
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
@@ -91,7 +91,7 @@ const SocialIcon = ({
     }}
     whileTap={{ scale: 0.95 }}
   >
-    <Icon className="w-5 h-5 text-neutral-600 dark:text-neutral-300 hover:text-indigo-400 transition-colors duration-300" />
+    <Icon className="w-5 h-5 text-neutral-600 dark:text-neutral-300 hover:text-blue-400 transition-colors duration-300" />
     <span className="sr-only">{label}</span>
   </motion.a>
 );
@@ -100,11 +100,11 @@ const Footer = () => (
   <>
     <footer className="relative mt-20 overflow-hidden">
       {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-purple-50/30 to-pink-50/50 dark:from-neutral-900/80 dark:via-neutral-800/60 dark:to-neutral-900/80 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 via-blue-50/30 to-emerald-50/50 dark:from-neutral-900/80 dark:via-neutral-800/60 dark:to-neutral-900/80 backdrop-blur-sm" />
       
       {/* Animated Gradient Divider */}
       <motion.div 
-        className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-indigo-500 to-transparent"
+        className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500 to-transparent"
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
@@ -123,7 +123,7 @@ const Footer = () => (
             transition={{ duration: 0.6 }}
             whileHover={{ 
               scale: 1.05,
-              filter: "drop-shadow(0 0 20px rgba(99, 102, 241, 0.3))"
+              filter: "drop-shadow(0 0 20px rgba(59, 130, 246, 0.3))"
             }}
           >
             <Image 
@@ -131,7 +131,7 @@ const Footer = () => (
               alt="Logo" 
               width={48}
               height={48}
-              className="h-12 w-auto object-contain transition-all duration-300"
+              className="h-12 w-auto object-contain transition-all duration-300 dark:bg-white/90 dark:px-4 dark:py-1 dark:rounded-full"
             />
           </motion.div>
           
@@ -172,7 +172,7 @@ const Footer = () => (
             
             <motion.a 
               href="mailto:veyra0047@gmail.com" 
-              className="inline-flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 px-3 py-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800/50 hover:underline"
+              className="inline-flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 px-3 py-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800/50 hover:underline"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}

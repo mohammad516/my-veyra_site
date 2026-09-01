@@ -105,7 +105,7 @@ const Contact = () => {
   return (
     <section id="contact" className="w-full py-20 relative">
       {/* Background gradient - full width */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/40 via-blue-50/20 to-indigo-50/40 dark:from-cyan-950/15 dark:via-blue-950/10 dark:to-indigo-950/15 -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/40 via-blue-50/20 to-emerald-50/40 dark:from-cyan-950/15 dark:via-blue-950/10 dark:to-emerald-950/15 -z-10" />
       
       {/* Floating decorative elements */}
       <motion.div
@@ -154,7 +154,7 @@ const Contact = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-3xl sm:text-4xl font-bold"
             >
-              <span className="bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-emerald-400 bg-clip-text text-transparent">
                 Tell us about your project
               </span>
             </motion.h2>
@@ -240,7 +240,7 @@ const Contact = () => {
                     <label htmlFor="message" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
                       Message *
                     </label>
-                    <div className="rounded-xl p-[1px] bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 animate-gradient">
+                    <div className="rounded-xl p-[1px] bg-gradient-to-r from-cyan-500 via-blue-500 to-emerald-500 animate-gradient">
                       <Textarea
                         id="message"
                         name="message"
@@ -275,7 +275,7 @@ const Contact = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed border-0 overflow-hidden relative group animate-gradient"
+                    className="w-full rounded-xl bg-gradient-to-r from-cyan-500 via-blue-500 to-emerald-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed border-0 overflow-hidden relative group animate-gradient"
                   >
                     {isSubmitting ? (
                       <motion.div

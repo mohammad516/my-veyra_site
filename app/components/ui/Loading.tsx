@@ -34,12 +34,12 @@ const Loading = ({ isLoading, onComplete }: LoadingProps) => {
           className="fixed inset-0 z-50 flex items-center justify-center"
         >
           {/* Gradient Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-900" />
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-50 via-white to-emerald-50 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-900" />
           
           {/* Animated Background Elements */}
           <div className="absolute inset-0 overflow-hidden">
             <motion.div
-              className="absolute -top-24 -right-24 h-80 w-80 bg-gradient-to-br from-indigo-500/20 via-fuchsia-500/10 to-cyan-500/20 rounded-full blur-3xl"
+              className="absolute -top-24 -right-24 h-80 w-80 bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-emerald-500/20 rounded-full blur-3xl"
               animate={{
                 scale: [1, 1.2, 1],
                 rotate: [0, 180, 360],
@@ -52,7 +52,7 @@ const Loading = ({ isLoading, onComplete }: LoadingProps) => {
               }}
             />
             <motion.div
-              className="absolute -bottom-24 -left-24 h-80 w-80 bg-gradient-to-tr from-emerald-400/20 via-sky-400/10 to-purple-400/20 rounded-full blur-3xl"
+              className="absolute -bottom-24 -left-24 h-80 w-80 bg-gradient-to-tr from-emerald-400/20 via-blue-400/10 to-cyan-400/20 rounded-full blur-3xl"
               animate={{
                 scale: [1.2, 1, 1.2],
                 rotate: [360, 180, 0],
@@ -80,9 +80,9 @@ const Loading = ({ isLoading, onComplete }: LoadingProps) => {
                 animate={{
                   scale: [1, 1.05, 1],
                   filter: [
-                    "drop-shadow(0 0 0px rgba(99, 102, 241, 0))",
-                    "drop-shadow(0 0 20px rgba(99, 102, 241, 0.3))",
-                    "drop-shadow(0 0 0px rgba(99, 102, 241, 0))"
+                    "drop-shadow(0 0 0px rgba(6, 182, 212, 0))",
+                    "drop-shadow(0 0 20px rgba(6, 182, 212, 0.3))",
+                    "drop-shadow(0 0 0px rgba(6, 182, 212, 0))"
                   ]
                 }}
                 transition={{
@@ -96,13 +96,13 @@ const Loading = ({ isLoading, onComplete }: LoadingProps) => {
                   alt="Logo" 
                   width={80}
                   height={80}
-                  className="h-20 w-auto object-contain"
+                  className="h-20 w-auto object-contain dark:bg-white/90 dark:px-4 dark:py-2 dark:rounded-full"
                 />
               </motion.div>
               
               {/* Glow Ring */}
               <motion.div
-                className="absolute inset-0 rounded-full border-2 border-indigo-400/30"
+                className="absolute inset-0 rounded-full border-2 border-cyan-400/30"
                 animate={{
                   scale: [1, 1.2, 1],
                   opacity: [0, 0.5, 0]
@@ -124,7 +124,7 @@ const Loading = ({ isLoading, onComplete }: LoadingProps) => {
             >
               {/* Outer Ring */}
               <motion.div
-                className="w-12 h-12 border-4 border-neutral-200 dark:border-neutral-700 border-t-indigo-500 rounded-full"
+                className="w-12 h-12 border-4 border-neutral-200 dark:border-neutral-700 border-t-cyan-500 rounded-full"
                 animate={{ rotate: 360 }}
                 transition={{
                   duration: 1,
@@ -135,7 +135,7 @@ const Loading = ({ isLoading, onComplete }: LoadingProps) => {
               
               {/* Inner Ring */}
               <motion.div
-                className="absolute inset-1 w-10 h-10 border-2 border-transparent border-t-purple-500 rounded-full"
+                className="absolute inset-1 w-10 h-10 border-2 border-transparent border-t-emerald-500 rounded-full"
                 animate={{ rotate: -360 }}
                 transition={{
                   duration: 0.8,

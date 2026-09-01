@@ -14,28 +14,28 @@ const Services = () => {
     title: "Dynamic Website",
     price: "$300",
     body: "Lightning-fast, lightweight websites perfect for personal portfolios and small businesses. Get your professional online presence with fast delivery and affordable pricing.",
-    color: "from-blue-500 to-indigo-500",
+    color: "from-cyan-400 to-blue-500",
     features: ["Fast Delivery", "Lightweight Design", "Affordable Pricing"],
   }, {
     icon: <ShoppingCart className="w-5 h-5"/>,
     title: "eCommerce Website",
     price: "$500",
     body: "Complete online store solution with product catalog, secure cart & checkout, payment integration, and scalable design that grows with your business.",
-    color: "from-emerald-500 to-teal-500",
+    color: "from-blue-500 to-emerald-500",
     features: ["Product Catalog", "Payment Integration", "Scalable Design"],
   }, {
     icon: <Smartphone className="w-5 h-5"/>,
     title: "Mobile Application",
     price: "$800",
     body: "Cross-platform mobile apps for iOS and Android with smooth UX, push notifications, and custom features. Reach your customers wherever they are.",
-    color: "from-purple-500 to-pink-500",
+    color: "from-emerald-400 to-cyan-500",
     features: ["Cross-Platform", "Push Notifications", "Custom Features"],
   }];
 
   return (
     <section ref={ref} id="services" className="w-full py-24 relative overflow-hidden">
       {/* Static background gradient - no animation */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/40 via-purple-50/30 to-pink-50/40 dark:from-indigo-950/20 dark:via-purple-950/15 dark:to-pink-950/20 -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/40 via-blue-50/30 to-emerald-50/40 dark:from-cyan-950/20 dark:via-blue-950/15 dark:to-emerald-950/20 -z-10" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -51,7 +51,7 @@ const Services = () => {
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4"
           >
-            <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-emerald-400 bg-clip-text text-transparent">
               Services
             </span>
           </motion.h2>
@@ -109,7 +109,7 @@ const Services = () => {
                     </div>
                     
                     <CardTitle className="flex items-center gap-3 text-2xl font-bold mb-2">
-                      <span className="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
+                      <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
                         {service.title}
                       </span>
                     </CardTitle>
