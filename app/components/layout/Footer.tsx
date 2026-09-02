@@ -171,7 +171,7 @@ const Footer = () => (
             <div className="hidden lg:block text-neutral-300 dark:text-neutral-600">|</div>
             
             <motion.a 
-              href="mailto:veyra0047@gmail.com" 
+              href="mailto:info@veyra.website" 
               className="inline-flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 px-3 py-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800/50 hover:underline"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
