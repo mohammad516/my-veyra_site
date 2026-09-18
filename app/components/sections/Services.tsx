@@ -17,7 +17,7 @@ const services = [
     whatsapp: WA_BASE + encodeURIComponent("Hey! I'm interested in a Portfolio / Business Website. Can you tell me more? 👋"),
     image:
       "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1789751129/qwqwqw_kqeo57.webp",
-    imageAlt: "Portfolio website mockup",
+    imageAlt: "Veyra portfolio and business website services in Lebanon",
     imageRight: true,
   },
   {
@@ -30,7 +30,7 @@ const services = [
     whatsapp: WA_BASE + encodeURIComponent("Hey! I'm interested in an eCommerce website. Can you tell me more? 🛒"),
     image:
       "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1789750762/wqwqwqqw_tme6rz.webp",
-    imageAlt: "eCommerce store mockup",
+    imageAlt: "Veyra eCommerce website services in Lebanon",
     imageRight: false,
   },
   {
@@ -43,8 +43,50 @@ const services = [
     whatsapp: WA_BASE + encodeURIComponent("Hey! I'm interested in a Mobile App. Can you tell me more? 📱"),
     image:
       "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1789750118/qwq_w55v8c.webp",
-    imageAlt: "Mobile app mockup",
+    imageAlt: "Veyra mobile app development services in Lebanon",
     imageRight: true,
+  },
+  {
+    number: "04",
+    category: "DOMAIN & HOSTING",
+    title: "Your website, live and locked down.",
+    description:
+      "We take care of domain registration, high-performance hosting, and security — so your site stays fast, safe, and online around the clock. No tech headaches, just results.",
+    price: "99",
+    priceLabel: "Starting from $99/yr",
+    whatsapp: WA_BASE + encodeURIComponent("Hey! I'm interested in Domain & Hosting services. Can you tell me more? 🌐"),
+    image:
+      "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1789752292/rereerre_kx84fs.jpg",
+    imageAlt: "Veyra domain and web hosting services in Lebanon",
+    imageRight: false,
+  },
+  {
+    number: "05",
+    category: "BUSINESS EMAIL",
+    title: "An email address that means business.",
+    description:
+      "Ditch the Gmail. We set you up with a professional email on your own domain — Google Workspace, Microsoft 365, or Zoho — so every message you send builds trust.",
+    price: "79",
+    priceLabel: "Starting from $79/yr",
+    whatsapp: WA_BASE + encodeURIComponent("Hey! I'm interested in Business Email setup. Can you tell me more? 📧"),
+    image:
+      "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1789752573/7e49afe2-bc55-4907-bdf3-9e8e9973482e_shrcki.webp",
+    imageAlt: "Veyra professional business email services in Lebanon",
+    imageRight: true,
+  },
+  {
+    number: "06",
+    category: "CUSTOM SOFTWARE",
+    title: "Software built for the way you actually work.",
+    description:
+      "Off-the-shelf tools don't always fit. We build custom systems — clinic management, POS, inventory, employee tracking, analytics — tailored exactly to your business workflow.",
+    price: "1,200",
+    priceLabel: "Starting from $1,200",
+    whatsapp: WA_BASE + encodeURIComponent("Hey! I'm interested in a Custom Software solution. Can you tell me more? 💻"),
+    image:
+      "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1789752871/fdss_u1hfgq.webp",
+    imageAlt: "Veyra custom software development services in Lebanon",
+    imageRight: false,
   },
 ];
 
@@ -137,7 +179,7 @@ const Services = () => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-neutral-900 dark:text-white font-semibold text-base group w-fit hover:gap-3 transition-all duration-200"
                 >
-                  Starting from ${service.price}
+                  {service.priceLabel ?? `Starting from $${service.price}`}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                 </a>
               </motion.div>

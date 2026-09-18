@@ -99,7 +99,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <Logos />
+          <Services />
         </motion.div>
         
         <motion.div
@@ -107,7 +107,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <WhatWeDo />
+          <Logos />
         </motion.div>
         
         <motion.div
@@ -115,7 +115,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <Services />
+          <WhatWeDo />
         </motion.div>
         
         <motion.div
