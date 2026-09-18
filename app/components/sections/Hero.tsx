@@ -62,9 +62,9 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="text-[2.5rem] sm:text-[3rem] lg:text-[2.75rem] xl:text-[3.25rem] 2xl:text-[4rem] font-black tracking-tighter leading-[1.05] text-neutral-900 dark:text-white"
           >
-            <span className="block whitespace-nowrap">We turn ambitious</span>
-            <span className="block whitespace-nowrap">ideas into</span>
-            <span className="block whitespace-nowrap bg-gradient-to-r from-cyan-400 via-blue-500 to-emerald-400 bg-clip-text text-transparent pb-2">digital experiences.</span>
+            <span className="block">We turn ambitious</span>
+            <span className="block">ideas into</span>
+            <span className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-emerald-400 bg-clip-text text-transparent pb-2">digital experiences.</span>
           </motion.h1>
 
           <motion.p
