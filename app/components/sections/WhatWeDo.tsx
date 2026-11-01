@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Code, PenTool, Megaphone, ShieldCheck, Zap, Cloud, Box, Rocket, TrendingUp, ArrowRight, Globe, Smartphone } from "lucide-react";
+import { Code, PenTool, Megaphone, ShieldCheck, Zap, Cloud, ArrowRight, Globe, Smartphone } from "lucide-react";
 
 const WhatWeDo = () => {
   const services = [

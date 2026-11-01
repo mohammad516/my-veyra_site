@@ -3,8 +3,6 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import { Button } from "../../../components/ui/button";
-import { Badge } from "../../../components/ui/badge";
-import { ChevronRight } from "lucide-react";
 import Section from "../../../components/ui/Section";
 
 const Hero = () => {

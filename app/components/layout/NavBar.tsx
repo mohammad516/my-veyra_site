@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "framer-motion";
 import { Button } from "../../../components/ui/button";
 
@@ -529,7 +530,7 @@ const NavBar = () => {
                     transition={{ duration: 0.4, delay: 0.5, type: "spring", stiffness: 300 }}
                     className="pt-4"
                   >
-                    <a href="/contact" onClick={() => setOpen(false)}>
+                    <Link href="/contact" onClick={() => setOpen(false)}>
                       <motion.div
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
@@ -560,7 +561,7 @@ const NavBar = () => {
                           />
                         </Button>
                       </motion.div>
-                    </a>
+                    </Link>
                   </motion.div>
                 </motion.div>
               </div>
