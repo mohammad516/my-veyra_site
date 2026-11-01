@@ -18,37 +18,33 @@ const LiquidLoading = () => {
 
   useEffect(() => {
     let animationFrameId: number;
+    let lastUpdate = 0;
     const startTime = Date.now();
-    
+
     const animate = () => {
-      const currentTime = (Date.now() - startTime) * 0.003; // Faster speed multiplier
-      
-      setHeights(prev => prev.map((height, index) => {
-        const maxHeight = 80;
-        const delay = index * 0.5; // Reduced delay for faster wave propagation
-        const time = currentTime;
-        
-        // Simplified wave calculation for better performance
-        const primaryWave = Math.sin(time * 2 + delay); // Faster animation
-        const bounceWave = Math.sin(time * 6 + delay) * 0.1; // Simplified secondary wave
-        
-        // Combine waves
-        const combinedWave = primaryWave + bounceWave;
-        
-        return maxHeight * combinedWave;
-      }));
-      
-      // Animate droplets
-      setDroplets(prev => prev.map((_, index) => {
-        const delay = index * 0.5;
-        const time = currentTime;
-        const waveValue = Math.sin(time * 2 + delay);
-        return waveValue > 0.7;
-      }));
-      
+      const now = Date.now();
+      // Throttle to ~30fps to reduce re-renders (was 60fps with 2 state updates each)
+      if (now - lastUpdate >= 33) {
+        lastUpdate = now;
+        const currentTime = (now - startTime) * 0.003;
+
+        setHeights(prev => prev.map((_, index) => {
+          const maxHeight = 80;
+          const delay = index * 0.5;
+          const primaryWave = Math.sin(currentTime * 2 + delay);
+          const bounceWave = Math.sin(currentTime * 6 + delay) * 0.1;
+          return maxHeight * (primaryWave + bounceWave);
+        }));
+
+        setDroplets(prev => prev.map((_, index) => {
+          const delay = index * 0.5;
+          return Math.sin(currentTime * 2 + delay) > 0.7;
+        }));
+      }
+
       animationFrameId = requestAnimationFrame(animate);
     };
-    
+
     animationFrameId = requestAnimationFrame(animate);
 
     return () => {

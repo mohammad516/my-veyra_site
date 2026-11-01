@@ -26,26 +26,12 @@ export default function Home() {
   const [isInitialLoading, setIsInitialLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate page load - you can adjust the timing or use actual load events
+    // Hide loader as soon as the page is ready (max 1.2s fallback)
     const timer = setTimeout(() => {
       setIsInitialLoading(false);
-    }, 2000); // Show loader for 2 seconds
+    }, 1200);
 
-    // Optional: Hide loader when page is fully loaded
-    if (typeof window !== 'undefined') {
-      window.addEventListener('load', () => {
-        setTimeout(() => {
-          setIsInitialLoading(false);
-        }, 500);
-      });
-    }
-
-    return () => {
-      clearTimeout(timer);
-      if (typeof window !== 'undefined') {
-        window.removeEventListener('load', () => {});
-      }
-    };
+    return () => clearTimeout(timer);
   }, []);
 
   return (

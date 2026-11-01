@@ -77,14 +77,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </h1>
 
           {/* Breadcrumb pill */}
-          <div className="mt-8 inline-flex items-center gap-3 rounded-full border-2 border-blue-500 bg-black/40 backdrop-blur-sm px-6 py-3 text-sm sm:text-base font-semibold text-white">
-            <Link href="/" className="hover:text-cyan-400 transition-colors">
+          <div className="mt-6 sm:mt-8 inline-flex items-center gap-2 sm:gap-3 rounded-full border-2 border-blue-500 bg-black/40 backdrop-blur-sm px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm md:text-base font-semibold text-white max-w-full">
+            <Link href="/" className="flex-shrink-0 hover:text-cyan-400 transition-colors">
               Veyra
             </Link>
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-emerald-400 bg-clip-text text-transparent font-black">
+            <span className="flex-shrink-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-emerald-400 bg-clip-text text-transparent font-black">
               ✦
             </span>
-            <span className="text-neutral-200">{post.title}</span>
+            <span className="text-neutral-200 truncate">{post.title}</span>
           </div>
         </div>
 

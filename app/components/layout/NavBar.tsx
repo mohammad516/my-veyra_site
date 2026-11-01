@@ -8,7 +8,6 @@ const NavBar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const navRef = useRef(null);
 
   const { scrollY } = useScroll();
@@ -16,18 +15,6 @@ const NavBar = () => {
   const scale = useTransform(scrollY, [0, 100], [1, 0.95]);
   const logoScale = useTransform(scrollY, [0, 100], [1, 0.9]);
   const logoRotate = useTransform(scrollY, [0, 100], [0, 5]);
-
-  // Spring values for mouse interactions
-  const logoRotateX = useSpring(mousePosition.y * 5, { stiffness: 300, damping: 30 });
-  const logoRotateY = useSpring(mousePosition.x * 5, { stiffness: 300, damping: 30 });
-  const linkRotateX = useSpring(mousePosition.y * 2, { stiffness: 300, damping: 30 });
-  const linkRotateY = useSpring(mousePosition.x * 2, { stiffness: 300, damping: 30 });
-  const linkX = useSpring(mousePosition.x * 3, { stiffness: 300, damping: 30 });
-  const linkY = useSpring(mousePosition.y * 3, { stiffness: 300, damping: 30 });
-  const buttonRotateX = useSpring(mousePosition.y * 3, { stiffness: 300, damping: 30 });
-  const buttonRotateY = useSpring(mousePosition.x * 3, { stiffness: 300, damping: 30 });
-  const mobileButtonRotateX = useSpring(mousePosition.y * 2, { stiffness: 300, damping: 30 });
-  const mobileButtonRotateY = useSpring(mousePosition.x * 2, { stiffness: 300, damping: 30 });
 
   const links = [
     { href: "/services", label: "Services" },
@@ -72,20 +59,9 @@ const NavBar = () => {
       setScrolled(scrollTop > 20);
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      if (navRef.current) {
-        const rect = (navRef.current as HTMLElement).getBoundingClientRect();
-        const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
-        const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
-        setMousePosition({ x, y });
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
@@ -191,9 +167,7 @@ const NavBar = () => {
               transition={{ duration: 0.6, delay: 0.2, type: "spring", bounce: 0.4 }}
               style={{
                 scale: logoScale,
-                rotate: logoRotate,
-                rotateX: logoRotateX,
-                rotateY: logoRotateY
+                rotate: logoRotate
               }}
             >
               <motion.div
@@ -255,20 +229,12 @@ const NavBar = () => {
                     scale: 1.05,
                     transition: { duration: 0.2, type: "spring", stiffness: 400 }
                   }}
-                  style={{
-                    rotateX: linkRotateX,
-                    rotateY: linkRotateY
-                  }}
                 >
-                  <motion.span
+                  <span
                     className="relative z-10 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-cyan-500 group-hover:via-blue-500 group-hover:to-emerald-500 transition-all duration-300"
-                    style={{
-                      x: linkX,
-                      y: linkY
-                    }}
                   >
                     {link.label}
-                  </motion.span>
+                  </span>
 
                   {/* Enhanced Path-Draw Underline */}
                   <motion.div
@@ -316,10 +282,6 @@ const NavBar = () => {
                   transition: { duration: 0.2, type: "spring", stiffness: 400 }
                 }}
                 whileTap={{ scale: 0.95 }}
-                style={{
-                  rotateX: buttonRotateX,
-                  rotateY: buttonRotateY
-                }}
               >
                 <motion.div
                   whileHover={{
@@ -381,10 +343,6 @@ const NavBar = () => {
                 transition: { duration: 0.2, type: "spring", stiffness: 400 }
               }}
               whileTap={{ scale: 0.95 }}
-              style={{
-                rotateX: mobileButtonRotateX,
-                rotateY: mobileButtonRotateY
-              }}
             >
               <motion.div
                 animate={{ rotate: open ? 180 : 0 }}

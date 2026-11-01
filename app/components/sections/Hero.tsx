@@ -33,8 +33,7 @@ const Hero = () => {
       <Section className="grid lg:grid-cols-2 gap-10 pt-20 pb-16 min-h-screen items-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.6,
             ease: "easeOut"
@@ -44,8 +43,7 @@ const Hero = () => {
           {/* Subtitle */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="text-[11px] font-bold tracking-[0.2em] text-neutral-500 uppercase flex items-center gap-2"
           >
@@ -55,8 +53,7 @@ const Hero = () => {
           {/* Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="text-[2.5rem] sm:text-[3rem] lg:text-[2.75rem] xl:text-[3.25rem] 2xl:text-[4rem] font-black tracking-tighter leading-[1.05] text-neutral-900 dark:text-white"
           >
@@ -67,8 +64,7 @@ const Hero = () => {
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
             className="text-base sm:text-lg text-neutral-500 dark:text-neutral-400 max-w-md leading-relaxed mt-2"
           >
@@ -77,8 +73,7 @@ const Hero = () => {
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
             className="flex flex-wrap items-center gap-6 mt-4"
           >
@@ -97,8 +92,7 @@ const Hero = () => {
           {/* Trust indicators */}
           <motion.div
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
             className="flex items-center gap-5 pt-8"
           >
@@ -130,8 +124,7 @@ const Hero = () => {
         {/* Image section - simplified, no 3D transforms */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{
             duration: 0.6,
             delay: 0.3,
