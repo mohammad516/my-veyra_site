@@ -44,12 +44,12 @@ export default async function AdminPage() {
               <div className="flex-1 min-w-0">
                 <h2 className="font-semibold truncate">{post.title}</h2>
                 <p className="text-neutral-400 text-sm truncate">
-                  /{post.slug} · {post.category} · {post.date}
+                  /blog/{post.slug} · {post.category} · {post.date}
                 </p>
               </div>
               <div className="flex items-center gap-2 shrink-0">
                 <Link
-                  href={`/${post.slug}`}
+                  href={`/blog/${post.slug}`}
                   target="_blank"
                   className="rounded-lg border border-neutral-700 px-3 py-1.5 text-sm text-neutral-300 hover:border-neutral-500"
                 >

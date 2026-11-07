@@ -6,7 +6,7 @@ import BlogGrid from "./components/BlogGrid";
 import BlogHero from "./components/BlogHero";
 import JsonLd from "../components/seo/JsonLd";
 import { getAllPosts } from "@/lib/posts";
-import { ORG_ID, WEBSITE_ID, DEFAULT_OG_IMAGE, absoluteUrl, breadcrumbJsonLd, personId } from "@/lib/seo";
+import { ORG_ID, WEBSITE_ID, DEFAULT_OG_IMAGE, absoluteUrl, breadcrumbJsonLd, personId, postPath } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -36,7 +36,7 @@ export default async function BlogPage() {
     blogPost: posts.map((post) => ({
       "@type": "BlogPosting",
       headline: post.title,
-      url: absoluteUrl(`/${post.slug}`),
+      url: absoluteUrl(postPath(post.slug)),
       description: post.excerpt,
       image: post.image,
       datePublished: post.createdAt,

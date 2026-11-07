@@ -236,7 +236,7 @@ export default function PostForm({ post }: { post?: BlogPost }) {
               required
               className={inputClass}
             />
-            <p className="text-neutral-500 text-xs mt-1">Post URL: veyra.website/{slug || "..."}</p>
+            <p className="text-neutral-500 text-xs mt-1">Post URL: veyra.website/blog/{slug || "..."}</p>
           </div>
           <div>
             <label className={labelClass}>Category</label>

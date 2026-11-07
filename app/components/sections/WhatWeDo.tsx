@@ -14,7 +14,7 @@ const WhatWeDo = () => {
       textColor: "text-cyan-400",
       borderColor: "border-cyan-400/30",
       glowColor: "from-cyan-400/20",
-      link: "/website-development-lebanon-2027",
+      link: "/blog/website-development-lebanon-2027",
     },
     {
       id: "02",
@@ -25,7 +25,7 @@ const WhatWeDo = () => {
       textColor: "text-blue-500",
       borderColor: "border-blue-500/30",
       glowColor: "from-blue-500/20",
-      link: "/web-design-lebanon"
+      link: "/blog/web-design-lebanon"
     },
     {
       id: "03",
@@ -46,7 +46,7 @@ const WhatWeDo = () => {
       textColor: "text-cyan-400",
       borderColor: "border-cyan-400/30",
       glowColor: "from-cyan-400/20",
-      link: "/seo-aeo-geo-lebanon"
+      link: "/blog/seo-aeo-geo-lebanon"
     },
     {
       id: "04",

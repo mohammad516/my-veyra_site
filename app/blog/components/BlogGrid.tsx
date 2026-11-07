@@ -43,7 +43,7 @@ const BlogGrid = ({ posts }: { posts: BlogPost[] }) => {
             transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
             className="group bg-white dark:bg-neutral-800 rounded-3xl border border-neutral-200 dark:border-neutral-700 overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col"
           >
-            <Link href={`/${post.slug}`} className="flex flex-col flex-1">
+            <Link href={`/blog/${post.slug}`} className="flex flex-col flex-1">
             {/* Image with category badge */}
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image

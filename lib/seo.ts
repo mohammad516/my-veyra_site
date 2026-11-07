@@ -51,6 +51,11 @@ export function absoluteUrl(path = "/"): string {
   return `${SITE_URL}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
+// Single source of truth for where a blog post lives
+export function postPath(slug: string): string {
+  return `/blog/${slug}`;
+}
+
 // Homepage-level entity graph: Organization, WebSite and the local business
 export function siteGraphJsonLd() {
   return {
@@ -228,7 +233,7 @@ export function postModifiedDate(post: BlogPost): string | undefined {
 }
 
 export function blogPostingJsonLd(post: BlogPost) {
-  const url = absoluteUrl(`/${post.slug}`);
+  const url = absoluteUrl(postPath(post.slug));
   const wordCount = [
     ...post.intro,
     ...post.finalThoughts,

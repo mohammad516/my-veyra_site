@@ -1,5 +1,5 @@
 import { getAllPosts } from "@/lib/posts";
-import { SITE_EMAIL, SITE_PHONE, SITE_SERVICES, SITE_URL } from "@/lib/seo";
+import { SITE_EMAIL, SITE_PHONE, SITE_SERVICES, SITE_URL, postPath } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -30,7 +30,7 @@ export async function GET() {
     "",
     "## Blog posts",
     "",
-    ...posts.map((p) => `- [${p.title}](${SITE_URL}/${p.slug}): ${p.excerpt}`),
+    ...posts.map((p) => `- [${p.title}](${SITE_URL}${postPath(p.slug)}): ${p.excerpt}`),
     "",
     "## Contact",
     "",

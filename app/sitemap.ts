@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/posts";
-import { SITE_URL } from "@/lib/seo";
+import { SITE_URL, postPath } from "@/lib/seo";
 
 // Posts live in MongoDB, so the sitemap is built per request
 export const dynamic = "force-dynamic";
@@ -33,7 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   const postPages: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${SITE_URL}/${post.slug}`,
+    url: `${SITE_URL}${postPath(post.slug)}`,
     lastModified: post.updatedAt ?? post.createdAt,
     changeFrequency: "monthly",
     priority: 0.7,
