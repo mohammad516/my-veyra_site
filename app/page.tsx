@@ -4,7 +4,7 @@ import { DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 const TITLE = "Web Development Agency in Beirut, Lebanon | Veyra";
 const DESCRIPTION =
-  "Veyra is a web development agency in Beirut, Lebanon. We build fast, secure websites, online stores, mobile apps and SEO, AEO and GEO strategies for businesses in Lebanon and worldwide.";
+  "Veyra is a web development agency in Beirut, Lebanon. We build fast, secure websites, mobile apps and SEO, AEO and GEO strategies for businesses worldwide.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },

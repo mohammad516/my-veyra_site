@@ -9,7 +9,7 @@ import { DEFAULT_OG_IMAGE, breadcrumbJsonLd, servicesJsonLd } from "@/lib/seo";
 
 const TITLE = "Web Development, Web Design & SEO Services in Beirut, Lebanon";
 const DESCRIPTION =
-  "Explore Veyra's services in Beirut, Lebanon: website development, web design, digital marketing, SEO, hosting, domain registration, maintenance and mobile app development.";
+  "Veyra's services in Beirut, Lebanon: website development, web design, digital marketing, SEO, hosting, domains, maintenance and mobile app development.";
 
 export const metadata: Metadata = {
   title: TITLE,

@@ -15,7 +15,7 @@ import {
 
 const TITLE = "Contact Veyra | Web Development Agency in Beirut, Lebanon";
 const DESCRIPTION =
-  "Contact Veyra in Beirut, Lebanon for a free consultation on websites, mobile apps, SEO and digital marketing. Email info@veyra.website or message us on WhatsApp.";
+  "Contact Veyra, a web development agency in Beirut, Lebanon, for a free consultation on websites, apps, SEO and digital marketing.";
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
