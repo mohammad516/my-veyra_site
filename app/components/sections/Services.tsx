@@ -90,7 +90,7 @@ const services = [
   },
 ];
 
-const Services = () => {
+const Services = ({ headingAs: Heading = "h2" }: { headingAs?: "h1" | "h2" }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -117,14 +117,14 @@ const Services = () => {
             <div className="h-px w-10 bg-cyan-500" />
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-black tracking-tight text-neutral-900 dark:text-white leading-tight">
+          <Heading className="text-4xl sm:text-5xl lg:text-[3.5rem] font-black tracking-tight text-neutral-900 dark:text-white leading-tight">
             Digital solutions for
             <br />
             <span className="text-neutral-900 dark:text-white">real </span>
             <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-emerald-400 bg-clip-text text-transparent">
               business growth.
             </span>
-          </h2>
+          </Heading>
 
           <p className="mt-6 font-script text-2xl sm:text-3xl max-w-2xl mx-auto leading-snug text-neutral-500 dark:text-neutral-400 pb-2">
             We build fast, scalable and visually stunning digital products — tailored to your goals, your brand and your customers.

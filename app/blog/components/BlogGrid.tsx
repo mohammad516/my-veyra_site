@@ -4,16 +4,16 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { blogPosts } from "../posts";
+import type { BlogPost } from "@/lib/posts";
 
 const POSTS_PER_PAGE = 6;
 
-const BlogGrid = () => {
+const BlogGrid = ({ posts }: { posts: BlogPost[] }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(blogPosts.length / POSTS_PER_PAGE);
+  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
 
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
-  const currentPosts = blogPosts.slice(startIndex, startIndex + POSTS_PER_PAGE);
+  const currentPosts = posts.slice(startIndex, startIndex + POSTS_PER_PAGE);
 
   const goToPage = (page: number) => {
     setCurrentPage(page);
@@ -36,7 +36,7 @@ const BlogGrid = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {currentPosts.map((post, index) => (
           <motion.article
-            key={post.id}
+            key={post._id ?? post.slug}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

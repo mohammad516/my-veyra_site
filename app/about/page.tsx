@@ -1,6 +1,13 @@
-"use client";
+import type { Metadata } from "next";
 import NavBar from "../components/layout/NavBar";
 import Footer from "../components/layout/Footer";
+
+// Placeholder page with no real content yet: keep it out of search indexes until it is built
+export const metadata: Metadata = {
+  title: "About Us",
+  alternates: { canonical: "/about" },
+  robots: { index: false, follow: true },
+};
 
 export default function AboutPage() {
   return (

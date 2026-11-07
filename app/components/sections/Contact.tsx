@@ -9,7 +9,8 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../../../compo
 import { CheckCircle2, Sparkles, AlertCircle } from "lucide-react";
 import { SiWhatsapp, SiInstagram, SiFacebook, SiTiktok } from "react-icons/si";
 
-const Contact = () => {
+const Contact = ({ headingAs = "h2" }: { headingAs?: "h1" | "h2" }) => {
+  const Heading = motion[headingAs];
   const [open, setOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -147,7 +148,7 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <motion.h2 
+            <Heading 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -157,7 +158,7 @@ const Contact = () => {
               <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-emerald-400 bg-clip-text text-transparent">
                 Tell us about your project
               </span>
-            </motion.h2>
+            </Heading>
             
             <motion.p 
               initial={{ opacity: 0, y: 20 }}

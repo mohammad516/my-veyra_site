@@ -128,7 +128,7 @@ const Footer = () => (
           >
             <Image 
               src="https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762117640/log_ctyaz9.png" 
-              alt="Logo" 
+              alt="Veyra logo"
               width={48}
               height={48}
               className="h-12 w-auto object-contain transition-all duration-300 dark:bg-white/90 dark:px-4 dark:py-1 dark:rounded-full"

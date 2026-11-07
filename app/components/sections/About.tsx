@@ -85,7 +85,7 @@ const About = () => {
           >
             <div className="relative transition-transform duration-300 hover:scale-[1.02]">
               <Image 
-                alt="team" 
+                alt="Veyra team — a compact web development and digital product studio in Beirut"
                 className="rounded-2xl border border-neutral-200 dark:border-neutral-800 shadow-lg" 
                 src="https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762116686/p1_sydcfb.avif"
                 width={600}

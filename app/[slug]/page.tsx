@@ -1,53 +1,101 @@
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { cache } from "react";
 import { Check } from "lucide-react";
 import NavBar from "../components/layout/NavBar";
 import Footer from "../components/layout/Footer";
 import FaqAccordion from "../blog/components/FaqAccordion";
-import { blogPosts, defaultFaqs } from "../blog/posts";
+import JsonLd from "../components/seo/JsonLd";
+import {
+  defaultFaqs,
+  getPostByPreviousSlug,
+  getPostBySlug,
+} from "@/lib/posts";
+import {
+  blogPostingJsonLd,
+  breadcrumbJsonLd,
+  faqJsonLd,
+  personJsonLd,
+  postModifiedDate,
+  postPublishedDate,
+} from "@/lib/seo";
+
+export const dynamic = "force-dynamic";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
 }
 
-// Pre-render all blog post slugs at build time
-export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
-}
+// generateMetadata and the page share one database read per request
+const loadPost = cache(getPostBySlug);
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = await loadPost(slug);
 
   if (!post) {
-    return {};
+    return { robots: { index: false, follow: false } };
   }
 
+  const path = `/${post.slug}`;
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: { canonical: path },
+    authors: [{ name: post.author }],
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.excerpt,
+      url: path,
+      publishedTime: postPublishedDate(post),
+      modifiedTime: postModifiedDate(post),
+      authors: [post.author],
+      section: post.category,
+      images: [{ url: post.image, alt: post.title }],
+    },
+    twitter: {
+      title: post.title,
+      description: post.excerpt,
+      images: [post.image],
+    },
   };
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params;
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = await loadPost(slug);
 
   if (!post) {
+    // A renamed post keeps answering on its old URL with a permanent redirect
+    const renamed = await getPostByPreviousSlug(slug);
+    if (renamed) permanentRedirect(`/${renamed.slug}`);
     notFound();
   }
 
   return (
     <main className="min-h-screen bg-white text-neutral-900 dark:bg-neutral-900 dark:text-white relative overflow-x-hidden flex flex-col">
       <NavBar />
+      <JsonLd
+        data={[
+          blogPostingJsonLd(post),
+          personJsonLd(post.author),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: post.title, path: `/${post.slug}` },
+          ]),
+          ...(post.faqs?.length ? [faqJsonLd(post.faqs)] : []),
+        ]}
+      />
 
       {/* Hero image - full bleed with overlay content */}
       <div className="relative w-full aspect-[1023/1162] md:aspect-auto md:h-[75vh] overflow-hidden">
         {/* Mobile hero image */}
         <Image
-          alt={post.title}
+          alt=""
           className="object-cover md:hidden"
           src="/blog-main1.jpeg"
           fill
@@ -57,7 +105,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         />
         {/* Desktop hero image */}
         <Image
-          alt={post.title}
+          alt=""
           className="hidden md:block object-cover"
           src="/blog-main.png"
           fill
@@ -93,15 +141,35 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       </div>
 
       <article className="flex-1 w-full max-w-3xl lg:max-w-5xl mx-auto px-4 sm:px-6 pt-16 pb-24">
-        {/* Post title */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-8 lg:mb-12">
+        {/* Same visible title as before; a <p> so the hero heading stays the page's only H1 */}
+        <p
+          aria-hidden="true"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-4"
+        >
           {post.title}
-        </h2>
+        </p>
+
+        {/* Visible byline: search engines only index author names shown on the page */}
+        <p className="mb-8 lg:mb-12 flex items-center gap-3 text-sm text-neutral-500 dark:text-neutral-400">
+          <Image
+            src={post.authorAvatar || "/icon.png"}
+            alt=""
+            width={32}
+            height={32}
+            className="h-8 w-8 rounded-full object-cover"
+          />
+          <span>
+            By{" "}
+            <span className="font-semibold text-neutral-800 dark:text-neutral-200">
+              {post.author}
+            </span>
+          </span>
+        </p>
 
         {/* Featured image */}
         <div className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-lg mb-10 lg:mb-14">
           <Image
-            alt={post.title}
+            alt={`${post.title} — featured image`}
             src={post.image}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 768px, 1024px"
@@ -128,7 +196,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {i === 2 && (
               <div className="relative aspect-[16/10] rounded-2xl overflow-hidden shadow-lg mb-12 lg:mb-16">
                 <Image
-                  alt={post.title}
+                  alt={`${post.title} — illustration`}
                   src={post.image2}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 768px, 1024px"
@@ -137,9 +205,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
             )}
           <div className="mb-12 lg:mb-16">
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight mb-6 lg:mb-8">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight mb-6 lg:mb-8">
               {section.heading}
-            </h3>
+            </h2>
 
             {section.paragraphs?.map((paragraph, j) => (
               <p key={j} className="text-base sm:text-lg lg:text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed mb-5 lg:mb-6">
@@ -207,9 +275,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Final thoughts */}
         <div className="mb-12 lg:mb-16">
-          <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight mb-6 lg:mb-8">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight mb-6 lg:mb-8">
             Final Thoughts
-          </h3>
+          </h2>
           {post.finalThoughts.map((paragraph, i) => (
             <p key={i} className="text-base sm:text-lg lg:text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed mb-5 lg:mb-6">
               {paragraph}
@@ -219,9 +287,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Frequently Asked Questions */}
         <div className="mb-12 lg:mb-16">
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight mb-6 lg:mb-10">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight mb-6 lg:mb-10">
             Frequently Asked Questions
-          </h3>
+          </h2>
           <FaqAccordion faqs={post.faqs ?? defaultFaqs} />
         </div>
 

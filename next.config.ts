@@ -27,6 +27,19 @@ const nextConfig: NextConfig = {
   },
   // Enable compression
   compress: true,
+
+  // Serve resolved metadata in <head> (not streamed) to AI and search crawlers
+  htmlLimitedBots:
+    /Googlebot|bingbot|GPTBot|OAI-SearchBot|ChatGPT-User|PerplexityBot|Perplexity-User|ClaudeBot|Claude-User|Claude-SearchBot|Applebot|DuckDuckBot|facebookexternalhit|Twitterbot|LinkedInBot|Slackbot|WhatsApp/i,
+
+  async headers() {
+    return [
+      {
+        source: "/(admin|api)/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

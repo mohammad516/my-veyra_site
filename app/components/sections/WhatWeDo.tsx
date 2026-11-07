@@ -14,6 +14,7 @@ const WhatWeDo = () => {
       textColor: "text-cyan-400",
       borderColor: "border-cyan-400/30",
       glowColor: "from-cyan-400/20",
+      link: "/website-development-lebanon-2027",
     },
     {
       id: "02",
@@ -24,6 +25,7 @@ const WhatWeDo = () => {
       textColor: "text-blue-500",
       borderColor: "border-blue-500/30",
       glowColor: "from-blue-500/20",
+      link: "/web-design-lebanon"
     },
     {
       id: "03",
@@ -44,6 +46,7 @@ const WhatWeDo = () => {
       textColor: "text-cyan-400",
       borderColor: "border-cyan-400/30",
       glowColor: "from-cyan-400/20",
+      link: "/seo-aeo-geo-lebanon"
     },
     {
       id: "04",
@@ -181,7 +184,7 @@ const WhatWeDo = () => {
 
                 {/* Link */}
                 <a
-                  href="#contact"
+                  href={service.link ?? "#contact"}
                   className={`mt-auto inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider px-5 py-2.5 rounded-full border ${service.borderColor} ${service.textColor} bg-black/30 backdrop-blur-sm hover:bg-black/50 transition-all duration-300 group-hover:gap-3`}
                 >
                   Explore service <ArrowRight className="w-3.5 h-3.5" />

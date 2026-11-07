@@ -100,7 +100,7 @@ const Hero = () => {
               {Array.from({ length: 5 }).map((_, i) => (
                 <div key={i} className="relative group">
                   <Image
-                    alt="avatar"
+                    alt=""
                     className="h-10 w-10 rounded-full ring-2 ring-white dark:ring-neutral-900 object-cover shadow-sm transition-transform duration-200 group-hover:scale-110"
                     src={`https://i.pravatar.cc/72?img=${i + 10}`}
                     width={40}
@@ -134,7 +134,7 @@ const Hero = () => {
         >
           <div className="relative rounded-3xl overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-[1.02]">
             <Image
-              alt="Professional business woman"
+              alt="Business professional working with Veyra, a web development agency in Beirut, Lebanon"
               className="w-full h-full object-cover"
               src="https://res.cloudinary.com/dp0wyn4dg/image/upload/v1786307317/hero_nv7djr.webp"
               width={1000}
