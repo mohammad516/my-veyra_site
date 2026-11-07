@@ -2,6 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { ADMIN_COOKIE, adminToken, verifyPassword } from "@/lib/auth";
 
 export async function POST(request: NextRequest) {
+  // Admin API only exists where ADMIN_ENABLED=true (local CMS)
+  if (process.env.ADMIN_ENABLED !== "true") {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
+
   try {
     const { password } = await request.json();
 
