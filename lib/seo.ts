@@ -14,6 +14,26 @@ export const SOCIAL_LINKS = [
   "https://www.linkedin.com/company/veyraweb/",
 ];
 
+// Names people actually search for. They disambiguate Veyra (the web agency)
+// from unrelated businesses sharing the name, e.g. the perfume brand.
+export const SITE_ALTERNATE_NAMES = [
+  "Veyra Web Development",
+  "Veyra Lebanon",
+  "Veyra Agency",
+  "Veyra Web Agency",
+];
+
+export const SITE_TAGLINE = "Crafting high-impact websites";
+
+export const SITE_KNOWS_ABOUT = [
+  "Web Development",
+  "Web Design",
+  "Search Engine Optimization",
+  "E-Commerce Development",
+  "Mobile App Development",
+  "Digital Marketing",
+];
+
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 export const BUSINESS_ID = `${SITE_URL}/#business`;
@@ -40,9 +60,7 @@ export function personJsonLd(name: string) {
 
 // Pages that define their own openGraph/twitter replace the inherited ones, so they pass this explicitly
 export const DEFAULT_OG_IMAGE = {
-  url: "/opengraph-image",
-  width: 1200,
-  height: 630,
+  url: "/og-image.png",
   alt: "Veyra — Web Development Agency in Beirut, Lebanon",
 };
 
@@ -65,10 +83,15 @@ export function siteGraphJsonLd() {
         "@type": "Organization",
         "@id": ORG_ID,
         name: SITE_NAME,
+        alternateName: SITE_ALTERNATE_NAMES,
         url: SITE_URL,
         logo: { "@type": "ImageObject", url: SITE_LOGO },
         description:
           "Veyra is a web development and digital marketing agency in Beirut, Lebanon, building websites, mobile apps and SEO strategies for businesses in Lebanon and worldwide.",
+        disambiguatingDescription:
+          "Web development, web design and SEO agency based in Beirut, Lebanon.",
+        slogan: SITE_TAGLINE,
+        knowsAbout: SITE_KNOWS_ABOUT,
         email: SITE_EMAIL,
         telephone: SITE_PHONE,
         sameAs: SOCIAL_LINKS,
@@ -85,6 +108,7 @@ export function siteGraphJsonLd() {
         "@id": WEBSITE_ID,
         url: SITE_URL,
         name: SITE_NAME,
+        alternateName: SITE_ALTERNATE_NAMES,
         inLanguage: "en",
         publisher: { "@id": ORG_ID },
       },
@@ -92,8 +116,13 @@ export function siteGraphJsonLd() {
         "@type": "ProfessionalService",
         "@id": BUSINESS_ID,
         name: SITE_NAME,
+        alternateName: SITE_ALTERNATE_NAMES,
         url: SITE_URL,
         image: SITE_LOGO,
+        description:
+          "Veyra is a web development agency in Beirut, Lebanon, offering website development, web design, e-commerce, mobile apps, SEO and digital marketing services.",
+        slogan: SITE_TAGLINE,
+        knowsAbout: SITE_KNOWS_ABOUT,
         email: SITE_EMAIL,
         telephone: SITE_PHONE,
         parentOrganization: { "@id": ORG_ID },

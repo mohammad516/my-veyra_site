@@ -47,7 +47,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="text-[11px] font-bold tracking-[0.2em] text-neutral-500 uppercase flex items-center gap-2"
           >
-            WEB DEVELOPMENT AGENCY <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
+            WEB DEVELOPMENT AGENCY IN LEBANON <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
           </motion.div>
 
           {/* Heading */}
@@ -68,7 +68,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
             className="text-base sm:text-lg text-neutral-500 dark:text-neutral-400 max-w-md leading-relaxed mt-2"
           >
-            We design and develop high-performance websites and digital products that help brands stand out and grow.
+            Veyra is a web development agency in Beirut, Lebanon. We design and develop high-performance websites and digital products that help brands stand out and grow.
           </motion.p>
 
           <motion.div

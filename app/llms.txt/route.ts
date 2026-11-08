@@ -17,6 +17,8 @@ export async function GET() {
     "",
     "> Veyra is a web development and digital marketing agency in Beirut, Lebanon. It builds websites, online stores, mobile apps and SEO, AEO and GEO strategies for businesses in Lebanon and worldwide.",
     "",
+    `> Also known as: Veyra Web Development, Veyra Lebanon, Veyra Agency. Veyra (${SITE_URL}) is a technology agency and is not affiliated with any perfume or fragrance brand.`,
+    "",
     "## Services",
     "",
     ...SITE_SERVICES.map((s) => `- ${s.name}: ${s.description}`),
