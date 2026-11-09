@@ -68,18 +68,24 @@ const SocialIcon = ({
   href, 
   icon: Icon, 
   label, 
-  delay = 0 
+  delay = 0,
+  immersive = false,
 }: { 
   href: string; 
   icon: React.ComponentType<{ className?: string }>; 
   label: string; 
   delay?: number;
+  immersive?: boolean;
 }) => (
   <motion.a
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="p-2 rounded-lg bg-white/10 dark:bg-neutral-800/20 backdrop-blur-sm border border-white/20 dark:border-neutral-700/30 hover:border-blue-400/50 transition-all duration-300"
+    className={`p-2 rounded-lg backdrop-blur-sm border transition-all duration-300 ${
+      immersive
+        ? "bg-white/90 border-white/60 hover:bg-white hover:border-cyan-300"
+        : "bg-white/10 dark:bg-neutral-800/20 border-white/20 dark:border-neutral-700/30 hover:border-blue-400/50"
+    }`}
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
@@ -91,16 +97,19 @@ const SocialIcon = ({
     }}
     whileTap={{ scale: 0.95 }}
   >
-    <Icon className="w-5 h-5 text-neutral-600 dark:text-neutral-300 hover:text-blue-400 transition-colors duration-300" />
+    <Icon className={`w-5 h-5 hover:text-blue-400 transition-colors duration-300 ${immersive ? "text-neutral-700" : "text-neutral-600 dark:text-neutral-300"}`} />
     <span className="sr-only">{label}</span>
   </motion.a>
 );
 
-const Footer = () => (
+// "immersive" lets the page's dark animated backdrop show through: no background, light text, light pills behind icons and logo
+const Footer = ({ variant = "default" }: { variant?: "default" | "immersive" }) => {
+  const immersive = variant === "immersive";
+  return (
   <>
-    <footer className="relative mt-20 overflow-hidden">
+    <footer className={`relative overflow-hidden ${immersive ? "" : "mt-20"}`}>
       {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 via-blue-50/30 to-emerald-50/50 dark:from-neutral-900/80 dark:via-neutral-800/60 dark:to-neutral-900/80 backdrop-blur-sm" />
+      <div className={`absolute inset-0 bg-gradient-to-br from-cyan-50/50 via-blue-50/30 to-emerald-50/50 dark:from-neutral-900/80 dark:via-neutral-800/60 dark:to-neutral-900/80 backdrop-blur-sm ${immersive ? "hidden" : ""}`} />
       
       {/* Animated Gradient Divider */}
       <motion.div 
@@ -131,7 +140,7 @@ const Footer = () => (
               alt="Veyra logo"
               width={48}
               height={48}
-              className="h-12 w-auto object-contain transition-all duration-300 dark:bg-white/90 dark:px-4 dark:py-1 dark:rounded-full"
+              className={`h-12 w-auto object-contain transition-all duration-300 ${immersive ? "bg-white/95 px-4 py-1 rounded-full" : "dark:bg-white/90 dark:px-4 dark:py-1 dark:rounded-full"}`}
             />
           </motion.div>
           
@@ -143,16 +152,16 @@ const Footer = () => (
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <SocialIcon href="https://wa.me/96171709133?text=Hello%20I%20want%20to%20order" icon={FaWhatsapp} label="WhatsApp" delay={0} />
-            <SocialIcon href="https://www.facebook.com/profile.php?id=61579729479913" icon={Facebook} label="Facebook" delay={0.1} />
-            <SocialIcon href="https://www.instagram.com/veyra.website/" icon={Instagram} label="Instagram" delay={0.2} />
-            <SocialIcon href="https://www.tiktok.com/@veyra2211?_t=ZS-8zj371LZP1O&_r=1" icon={FaTiktok} label="TikTok" delay={0.3} />
+            <SocialIcon immersive={immersive} href="https://wa.me/96171709133?text=Hello%20I%20want%20to%20order" icon={FaWhatsapp} label="WhatsApp" delay={0} />
+            <SocialIcon immersive={immersive} href="https://www.facebook.com/profile.php?id=61579729479913" icon={Facebook} label="Facebook" delay={0.1} />
+            <SocialIcon immersive={immersive} href="https://www.instagram.com/veyra.website/" icon={Instagram} label="Instagram" delay={0.2} />
+            <SocialIcon immersive={immersive} href="https://www.tiktok.com/@veyra2211?_t=ZS-8zj371LZP1O&_r=1" icon={FaTiktok} label="TikTok" delay={0.3} />
           </motion.div>
           
           {/* Copyright and Email */}
           <div className="flex flex-col lg:flex-row items-center gap-3 lg:gap-6 text-center lg:text-left">
             <motion.div 
-              className="text-sm text-neutral-500 dark:text-neutral-400 flex items-center gap-1"
+              className={`text-sm flex items-center gap-1 ${immersive ? "text-white/70" : "text-neutral-500 dark:text-neutral-400"}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -168,11 +177,15 @@ const Footer = () => (
             </motion.div>
             
             {/* Divider for large screens */}
-            <div className="hidden lg:block text-neutral-300 dark:text-neutral-600">|</div>
+            <div className={`hidden lg:block ${immersive ? "text-white/30" : "text-neutral-300 dark:text-neutral-600"}`}>|</div>
             
             <motion.a 
               href="mailto:info@veyra.website" 
-              className="inline-flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 px-3 py-2 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800/50 hover:underline"
+              className={`inline-flex items-center gap-2 text-sm transition-all duration-300 px-3 py-2 rounded-lg hover:underline ${
+                immersive
+                  ? "text-white/80 hover:text-cyan-300 hover:bg-white/10"
+                  : "text-neutral-500 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-neutral-100 dark:hover:bg-neutral-800/50"
+              }`}
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -190,6 +203,7 @@ const Footer = () => (
     {/* Back to Top Button */}
     <BackToTopButton />
   </>
-);
+  );
+};
 
 export default Footer;

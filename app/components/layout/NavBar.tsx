@@ -4,7 +4,9 @@ import Link from "next/link";
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "framer-motion";
 import { Button } from "../../../components/ui/button";
 
-const NavBar = () => {
+// "immersive" renders over a dark animated backdrop: no solid background, light text, light pills behind the logo
+const NavBar = ({ variant = "default" }: { variant?: "default" | "immersive" }) => {
+  const immersive = variant === "immersive";
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -69,7 +71,7 @@ const NavBar = () => {
     <>
       {/* Enhanced Animated Progress Bar with Shimmer */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 z-50 overflow-hidden"
+        className={`fixed top-0 left-0 right-0 h-1 z-50 overflow-hidden ${immersive ? "hidden" : ""}`}
         style={{ scaleX: scrollProgress / 100 }}
         transition={{ duration: 0.1 }}
       >
@@ -106,9 +108,13 @@ const NavBar = () => {
       {/* Enhanced NavBar with Scroll Effects */}
       <motion.div
         ref={navRef}
-        className={`sticky top-0 z-40 transition-all duration-500 ${scrolled
-            ? 'backdrop-blur-xl bg-white/90 dark:bg-neutral-900/90 shadow-2xl border-b border-neutral-200/20 dark:border-neutral-800/20'
-            : 'backdrop-blur-md bg-white/70 dark:bg-neutral-900/70'
+        className={`sticky top-0 z-40 transition-all duration-500 ${immersive
+            ? scrolled
+              ? 'backdrop-blur-xl bg-[#05070d]/40 border-b border-white/5'
+              : 'bg-transparent'
+            : scrolled
+              ? 'backdrop-blur-xl bg-white/90 dark:bg-neutral-900/90 shadow-2xl border-b border-neutral-200/20 dark:border-neutral-800/20'
+              : 'backdrop-blur-md bg-white/70 dark:bg-neutral-900/70'
           }`}
         style={{ y, scale }}
         initial={{ y: -100, opacity: 0 }}
@@ -117,7 +123,7 @@ const NavBar = () => {
       >
         {/* Enhanced Animated Gradient Background */}
         <motion.div
-          className="absolute inset-0 overflow-hidden"
+          className={`absolute inset-0 overflow-hidden ${immersive ? "hidden" : ""}`}
           animate={{
             background: scrolled ? [
               "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.08) 50%, rgba(16, 185, 129, 0.1) 100%)",
@@ -140,7 +146,7 @@ const NavBar = () => {
 
         {/* Noise overlay */}
         <motion.div
-          className="absolute inset-0 opacity-5 dark:opacity-10"
+          className={`absolute inset-0 opacity-5 dark:opacity-10 ${immersive ? "hidden" : ""}`}
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
           }}
@@ -180,7 +186,10 @@ const NavBar = () => {
                 <motion.img
                   src="https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762117640/log_ctyaz9.png"
                   alt="Veyra Web Development agency Beirut Lebanon logo"
-                  className="h-18 w-auto object-contain relative z-10 dark:bg-white/90 dark:px-4 dark:py-1 dark:rounded-full"
+                  className={`h-18 w-auto object-contain relative z-10 ${immersive
+                      ? "bg-white/95 px-4 py-1 rounded-full shadow-lg shadow-cyan-400/10"
+                      : "dark:bg-white/90 dark:px-4 dark:py-1 dark:rounded-full"
+                    }`}
                 />
                 {/* Glow effect */}
                 <motion.div
@@ -222,7 +231,7 @@ const NavBar = () => {
                 <motion.a
                   key={link.href}
                   href={link.href}
-                  className="relative text-[11px] font-bold uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400 transition-colors duration-300 group cursor-pointer"
+                  className={`relative text-[11px] font-bold uppercase tracking-[0.2em] transition-colors duration-300 group cursor-pointer ${immersive ? "text-white/80" : "text-neutral-500 dark:text-neutral-400"}`}
                   variants={linkVariants}
                   whileHover={{
                     y: -2,
@@ -336,7 +345,10 @@ const NavBar = () => {
             {/* Enhanced Mobile Menu Button with Micro-interactions */}
             <motion.button
               onClick={() => setOpen(!open)}
-              className="md:hidden p-3 rounded-2xl border border-neutral-300/50 dark:border-neutral-700/50 hover:bg-neutral-100/50 dark:hover:bg-neutral-800/50 transition-all duration-300 backdrop-blur-sm relative group"
+              className={`md:hidden p-3 rounded-2xl border transition-all duration-300 backdrop-blur-sm relative group ${immersive
+                  ? "border-white/20 bg-white/10 text-white hover:bg-white/20"
+                  : "border-neutral-300/50 dark:border-neutral-700/50 hover:bg-neutral-100/50 dark:hover:bg-neutral-800/50"
+                }`}
               whileHover={{
                 scale: 1.05,
                 rotate: 5,
@@ -414,7 +426,10 @@ const NavBar = () => {
             />
 
             <motion.div
-              className="md:hidden fixed inset-x-0 top-20 z-30 border-t border-neutral-200/20 dark:border-neutral-800/20 bg-white/95 dark:bg-neutral-900/95 backdrop-blur-xl shadow-2xl overflow-hidden"
+              className={`md:hidden fixed inset-x-0 top-20 z-30 border-t backdrop-blur-xl shadow-2xl overflow-hidden ${immersive
+                  ? "border-white/10 bg-[#05070d]/90"
+                  : "border-neutral-200/20 dark:border-neutral-800/20 bg-white/95 dark:bg-neutral-900/95"
+                }`}
               initial={{ opacity: 0, height: 0, y: -50, scale: 0.95 }}
               animate={{ opacity: 1, height: "auto", y: 0, scale: 1 }}
               exit={{ opacity: 0, height: 0, y: -50, scale: 0.95 }}
@@ -437,7 +452,10 @@ const NavBar = () => {
                       key={link.href}
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className="py-4 px-6 text-sm font-bold uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400 transition-all duration-300 rounded-2xl hover:bg-neutral-50/50 dark:hover:bg-neutral-800/50 group relative overflow-hidden"
+                      className={`py-4 px-6 text-sm font-bold uppercase tracking-[0.2em] transition-all duration-300 rounded-2xl group relative overflow-hidden ${immersive
+                          ? "text-white/80 hover:bg-white/10"
+                          : "text-neutral-500 dark:text-neutral-400 hover:bg-neutral-50/50 dark:hover:bg-neutral-800/50"
+                        }`}
                       variants={linkVariants}
                       whileHover={{
                         x: 10,

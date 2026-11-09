@@ -39,6 +39,11 @@ const Work = () => {
       title: "aquanotch.com",
       link: "https://www.aquanotch.com",
       img: "https://res.cloudinary.com/dp0wyn4dg/image/upload/f_auto,q_auto/v1762116686/p13_ubm2lp.avif"
+    },
+    {
+      title: "rkeinzon.com",
+      link: "https://www.rkeinzon.com",
+      img: "https://res.cloudinary.com/dp0wyn4dg/image/upload/v1794260839/veyra/work/rkeinzon.png"
     }
   ];
 
